@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    font-family:'Gilroy';
+    font-size: 16px;
+}
+html,body{
+    height:100%;
+}
+.back{
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+.top{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 1.625rem 0 1.375rem 1.708rem;
+}
+.cart{
+    background-color:white;
+    border-radius: 1.25rem 1.25rem 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height:100%;
+
+}
+.cart-top{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin: 1.875rem 0 1.688rem 0;
+}
+.left-top{
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+.normal-text{
+    font-weight: normal;
+    line-height: 1.188rem;
+}
+.remove-all-text{
+    color: #FA6161;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    margin-right: 24px;
+}
+.remove-text{
+    color: #FA6161;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    text-decoration: underline;
+}
+.product-list{
+    padding-bottom: 0.875rem;
+    
+    height: 60vh;
+    overflow:scroll;
+}
+.price-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EAF8F1;
+    border-radius: 1.25rem;
+    margin: 0 1.5rem;
+    padding: 1rem 1.5rem;
+}
+.buy-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.25rem 1.5rem;
+    margin-left: 1.875rem;
+}
+
+.buy-btn{
+    color: white;
+    border: none;
+    background: #2CB674;
+    border-radius: 3.125rem;
+    width: 9.688rem;
+    height: 3.125rem;
+}
+
+.product-block{
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(128, 128, 128, 0.15);
+    border-radius: 1.25rem;
+    margin: 0 1.5rem 1.25rem 1.5rem;
+    padding: 0.625rem;
+}
+.product-img{
+    height: 5rem;
+    width: 5rem;
+    padding-right: 0.625rem;
+    border-radius: 1.25rem;
+}
+.product-data{
+    width: 100%;
+    margin-right: 0.875rem;
+    display: flex;
+    flex-direction: column;
+}
+.row-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.count-section{
+    display: flex;
+    align-items: center;
+}
+.count{
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.188rem;
+    margin: 1.125rem 1rem 0 1rem;
+}
+
+.svg-box{
+    width: 1.875rem;
+    height: 1.875rem;
+    background: #F7F7F7;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
