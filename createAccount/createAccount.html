@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../createAccount/createAccount.css">
+
+    <title>Shopello</title>
+</head>
+
+<body>
+    <div>
+      <!--link to login page-->
+      <header class="container">
+        <h1>Create Account</h1>
+        <p>Already have an account? <a href="../login/login.html" style="color:#2CB674">Login</a>.</p>
+        </header>
+        <form>
+            <div class="form">
+            <!--Name input and icon-->
+          <div class="nameIcon">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Enter Your Full Name" name="name" required >
+            <img class="nameimg" src="../assets/img/user.svg">
+          </div>
+            <!--Email input and icon-->
+            <div class="mailIcon">
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="Enter Your Email" name="email" required>
+            <img class="mailimg" src="../assets/img/email.svg">
+            </div>
+            <!-- password Input and Icons-->
+            <div class="pswIcon">
+            <label for="password" id="password">Password</label>
+            <input id="password" type="password" placeholder="Enter Your Password" name="password" required>
+            <img  class="pswimg" src="../assets/img/password.svg">
+            <img class="hidePsw" src="../assets/img/hideEye.svg">
+          </div>
+          <!--Currency-->
+          <div class="currency">
+            <label for="currency">Currency</label>
+          <select id="currency" name="currency">
+            <option value="USD">USD</option>
+            <option value=""></option>
+          </select> 
+        </div>
+          </div>
+        </form> 
+        <!--submit button-->
+        <button type="submit" class="signupbtn">Get Started</button>
+    </div>
+</body>
+</html>
