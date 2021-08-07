@@ -55,10 +55,10 @@ html,body{
     text-decoration: underline;
 }
 .product-list{
-    padding-bottom: 0.875rem;
-    
+    padding-bottom: 0.875rem;   
     height: 60vh;
-    overflow:scroll;
+    overflow-y:scroll;
+    overflow-x: hidden;
 }
 .price-block{
     display: flex;
@@ -153,4 +153,35 @@ html,body{
     width:12.5rem ;
     text-align: center;
     line-height: 1.625rem;
+}
+.cart-bottom{
+    margin-top: 1rem;
+}
+.close{
+    margin-left: 1rem;
+    display: none;
+}
+@media(min-width: 600px) {
+    body{
+        display: flex;
+        justify-content:flex-end;
+        background-color: transparent;
+    }
+    .back {
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 40%;
+    }
+    .cart{
+        border-radius: 0;
+    }
+    .cart-top{
+        border-radius: 0;
+        margin: 1rem 0 1rem 0;
+    }
+    .top{
+        display: none;
+    }
+    .close{
+        display: block;
+    }
 }
