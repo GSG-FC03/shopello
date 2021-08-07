@@ -104,7 +104,7 @@ input[type=text], input[type=password], #currency{
 .nameIcon img[class="nameimg"]{
     position: absolute;
     left: 0;
-    top: 34px;
+    top: 38px;
     padding: 9px 8px;
 }
 .nameIcon input[type=text]{
@@ -113,7 +113,7 @@ input[type=text], input[type=password], #currency{
 .nameIcon img[class="nameimg"]{
     position: absolute;
     right: 0;
-    top:34px ;
+    top:38px ;
     padding: 9px 8px;
 }
 /* Style Email input and icon */
@@ -124,7 +124,7 @@ input[type=text], input[type=password], #currency{
 .mailIcon img[class="mailimg"]{
     position: absolute;
     left: 0;
-    top: 34px;
+    top: 38px;
     padding: 9px 8px;
 }
 .mailIcon input[type=text]{
@@ -133,7 +133,7 @@ input[type=text], input[type=password], #currency{
 .mailIcon img[class="mailimg"]{
     position: absolute;
     right: 0;
-    top:34px ;
+    top:38px ;
     padding: 9px 8px;
 }
 /* Style password input and icon */
@@ -144,7 +144,7 @@ input[type=text], input[type=password], #currency{
 .pswIcon img[class="pswimg"]{
     position: absolute;
     left: 0;
-    top: 34px;
+    top: 38px;
     padding: 9px 8px;
 }
 .pswIcon input[type=password]{
@@ -152,8 +152,8 @@ input[type=text], input[type=password], #currency{
 }
 .pswIcon img[class="hidePsw"]{
     position: absolute;
-    right: 0;
-    top:34px ;
+    right: 7px;
+    top:38px ;
     padding: 9px 8px;
     cursor: pointer;
 }
@@ -164,6 +164,8 @@ input[type=text], input[type=password], #currency{
     width: 300px;
     height:auto; 
     text-align:left;
+    margin-left: 7px;
+
 }
 
 /* Style signup button */
