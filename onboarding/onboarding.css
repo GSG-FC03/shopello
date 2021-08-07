@@ -1,0 +1,142 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: 'Gilroy-bold';
+    src: url(../assets/font/Gilroy-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Gilroy-regular';
+    src: url(../assets/font/Gilroy-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Gilroy-medium';
+    src: url(../assets/font/Gilroy-Medium.ttf);
+}
+
+.slider{
+    width: 100%;
+    height: 710px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.slides{
+    width: 300px;
+    height: 300px;
+    margin-top: 80px;
+    padding: 0;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+
+.slide{
+    margin-right: 40px;
+    width: 100%;
+    transition: 1s;
+    opacity: 30%;
+
+}
+
+.slide img{
+    width: 300px;
+    height: 300px;
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    top: 609px;
+}
+
+.manual-btn{
+    background-color: #EDEDED;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 500ms;
+
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 20px;
+}
+
+.manual-btn:hover{
+    background-color: #2CB674;
+}
+
+.manual-btn:active{
+    background-color: #2CB674;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0px;
+    opacity: 100%;
+}
+#radio2:checked ~ .first{
+    margin-left: -340px;
+
+
+}
+
+#radio2:checked ~ .second{
+    opacity: 100%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -680px;
+
+}
+
+#radio3:checked ~ .third{
+    opacity: 100%;
+
+}
+
+.start-btn{
+    font-family: 'Gilroy-medium';
+    position: absolute;
+    bottom: 50px;
+}
+
+.start-btn button{
+    height: 50px;
+    width: 250px;
+    border-radius: 50px;
+    border: none;
+    background-color: #2CB674;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+}
+
+.onBoardingtitle{
+    font-family: 'Gilroy-bold';
+    margin: 50px 0 24px 0;
+    /* font-size: 30px; */
+    /* line-height: 35px; */
+}
+
+.onBoardingDisc{
+    font-family: 'Gilroy-regular';
+}
+
+#radio:checked ~ .manual-btn{
+    background-color: #2CB674;
+}
