@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./onboarding/onboarding.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- image slider starts -->
+    <div class="slider">
+      <div class="slides">
+        <!-- slider radio button starts -->
+        <input type="radio" name="radio-btn" id="radio1" />
+        <input type="radio" name="radio-btn" id="radio2" />
+        <input type="radio" name="radio-btn" id="radio3" />
+        <!-- slider radio dutton ends -->
+        <!-- slider images starts -->
+        <div class="slide first">
+          <img src="./assets/img/onboarding step1.svg" alt="" />
+          <!-- title for each slide -->
+          <div class="onBoardingtitle">
+            <h1>Looking for items</h1>
+          </div>
+          <div class="onBoardingDisc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit illo
+            esse ipsam obcaecati ex quibusdam dignissimos omnis tempora eaque.
+            Eveniet.
+          </div>
+        </div>
+        <div class="slide second">
+          <img src="./assets/img/onboarding step2.svg" alt="" />
+          <div class="onBoardingtitle">
+            <h1>Add to cart</h1>
+          </div>
+          <div class="onBoardingDisc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit illo
+            esse ipsam obcaecati ex quibusdam dignissimos omnis tempora eaque.
+            Eveniet.
+          </div>
+        </div>
+        <div class="slide third">
+          <img src="./assets/img/onboarding step3.svg" alt="" />
+          <div class="onBoardingtitle">
+            <h1>Purchase your items</h1>
+          </div>
+          <div class="onBoardingDisc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit illo
+            esse ipsam obcaecati ex quibusdam dignissimos omnis tempora eaque.
+            Eveniet.
+          </div>
+        </div>
+        <!-- slider images ends -->
+        <!-- automatic navigation starts -->
+        <div class="Navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+        </div>
+        <!-- automatic navigation ends -->
+      </div>
+      <!-- manual navigation start-->
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+      </div>
+      <!-- manual navigation end-->
+    </div>
+    <!-- image slider ends -->
+    <!-- starting button -->
+    <div class="start-btn" onclick="location.href='home.html'">
+      <button>Get Started</button>
+    </div>
+    <!-- starting button -->
+    <script src="./onboarding/onboarding.js"></script>
+  </body>
+</html>
