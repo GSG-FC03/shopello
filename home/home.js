@@ -44,6 +44,7 @@ const listOfPopulore = document.getElementById('listOfPopulore'),
   tags = document.getElementById('tags'),
   listOfOffers = document.getElementById('listOfOffers'),
   listOfRecommeded = document.getElementById('listOfRecommeded'),
+  main = document.getElementById('main'),
   apiCate = `https://fakestoreapi.com/products/categories`,
   baseApi = "https://fakestoreapi.com/products?limit=10";
 
@@ -65,6 +66,7 @@ function createCate(data) {
     const eleOfTag = document.createElement('li');
     eleOfTag.setAttribute('class', 'item')
     eleOfTag.innerText = `${el}`
+    eleOfTag.addEventListener('click', getProductByCate)
     tags.appendChild(eleOfTag)
   })
 }
@@ -111,14 +113,14 @@ function createPro(data) {
     titleAndPrice.appendChild(proPrice)
 
     el.setAttribute("class", "item")
-    el.setAttribute("dataset", `${objid}`)
     proImg.setAttribute("class", "imgOfPopulore")
     proImg.setAttribute('src', `${objImage}`)
     textAndImg.setAttribute('class', 'wrapOfText')
     proTitle.setAttribute('class', 'title')
+    proTitle.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
     proPrice.setAttribute('class', 'price')
     cartImg.setAttribute('src', '../assets/img/cart with plus.svg')
-    cartImg.addEventListener('click', addToCart)
+    cartImg.setAttribute('onclick', `getDataDetails(${objid}, addToCart)`)
 
     proTitle.innerText = `${readyTitle}`
     proPrice.innerText = `$${objPrice}`
@@ -155,7 +157,7 @@ function createOffer(data) {
     listOfOffers.appendChild(elemOfOffer)
 
     elemOfOffer.setAttribute("class", "item")
-    elemOfOffer.setAttribute("dataset", `${objid}`)
+    elemOfOffer.setAttribute('onclick', `getDataDetails(${objid}, displayDetails)`)
     offerCate.setAttribute('src', `../assets/img/${objCate}.svg`)
     offerCate.setAttribute("class", "imgOfTag")
     offSpan.setAttribute('class', 'nameOfTag')
@@ -197,15 +199,15 @@ function createRecomeded(data) {
     wrapOfTitleAndPrice.appendChild(proPrice)
 
     elemOfRecom.setAttribute("class", "item")
-    elemOfRecom.setAttribute("dataset", `${objid}`)
     imgOfRecom.setAttribute("class", "imgOfRecom")
     imgOfRecom.setAttribute('src', `${objImage}`)
     wrapOfTitleAndPrice.setAttribute('class', 'wrapOfTitleAndPrice')
     proTitle.setAttribute('class', 'title')
+    proTitle.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
     proPrice.setAttribute('class', 'price')
     imgCart.setAttribute('class', 'addToCart')
     imgCart.setAttribute('src', '../assets/img/cart with plus.svg')
-    imgCart.addEventListener('click', addToCart)
+    imgCart.setAttribute('onclick', `getDataDetails(${objid},addToCart)`)
 
     proTitle.innerText = `${readyTitle}`
     proPrice.innerText = `$${objPrice}`
