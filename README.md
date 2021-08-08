@@ -6,7 +6,10 @@ The main idea of this application is to help the user navigate and find all the 
 ## ✧ Links
 - [Github link](https://github.com/GSG-FC03/shopello)
 - [Figma design](https://www.figma.com/file/dh6do5w4fj3NZDZQYmFRDV/ecommerce?node-id=0%3A1)
-- [Live link]()
+- [Live link](https://gsg-fc03.github.io/shopello/)
+- [Fake Shop API](https://fakestoreapi.com/products)
+- [Translation API](https://mymemory.translated.net/doc/spec.php)
+- [Currency Exchange API](https://free.currconv.com/api/v7 )
  
 ## ✧ Problem 
 Due to COVID-19 most shopping companies had difficulties in marketing and delivering products to their customers.
