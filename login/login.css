@@ -46,7 +46,7 @@
   .container{
     text-align: center;
   }
-  h1{
+  .container h1{
     margin-top: 70px;
     margin-inline: 30px;
     font-size: 25px;
@@ -57,7 +57,7 @@
   a{
     text-decoration: none;
   }
-  p{
+  .container p{
     margin-top: 20px;
     margin-bottom: 60px;
     font-size: 14px;
@@ -74,7 +74,8 @@
     }
     
   /* Inputs Style */
-  input[type=text], input[type=password], select{
+  .pswIcon input,
+  .mailIcon input {
     width: 300px;
     height: 50px;
     display: inline-block;
@@ -100,7 +101,7 @@
     top: 38px;
     padding: 9px 8px;
   }
-  .mailIcon input[type=text]{
+  .mailIcon input[type=email]{
     padding-left: 40px;
   }
   .mailIcon img[class="mailimg"]{
@@ -132,7 +133,7 @@
   }
   
   /* Style label text */
-  label {
+  .mailIcon label,.pswIcon label {
     display:block;
     width: 300px;
     height:auto; 
