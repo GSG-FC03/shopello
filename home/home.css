@@ -197,8 +197,7 @@ h1 {
   font-family: "Gilroy-Bold";
 }
 
-.activeTag,
-.tags li:nth-last-of-type(4) {
+.activeTag {
   background-color: #ffffff;
   border: solid 1px var(--Main-Color);
   color: var(--Main-Color);
@@ -243,9 +242,10 @@ h2 {
 
 .imgOfPopulore {
   width: 100%;
-  height: 240px;
+  min-height: 240px;
   border-radius: 20px;
-  background-color: var(--Bg-Card);
+  background-color: #fff;
+  object-fit: contain;
 }
 
 .wrapOfText {
@@ -294,6 +294,7 @@ h2 {
   background-color: #fff;
   border-radius: 20px;
   margin-right: 13px;
+  object-fit: contain;
 }
 
 .listOfOffers li {
@@ -354,11 +355,13 @@ h2 {
   height: 80px;
   border-radius: 20px;
   margin-left: 10px;
-  background-color: var(--Bg-Card);
+  background-color: #fff;
+  object-fit: contain;
 }
 
 .wrapOfTitleAndPrice {
   margin-left: 10px;
+  width: 130px;
 }
 
 .wrapOfTitleAndPrice h3 {
