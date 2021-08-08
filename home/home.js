@@ -68,3 +68,58 @@ function createCate(data) {
     tags.appendChild(eleOfTag)
   })
 }
+
+//fetch api for listOfPopulore
+(async function getData() {
+  try {
+    const response = await fetch(baseApi),
+      data = await response.json();
+
+    createPro(data);
+
+  } catch (e) {
+    console.log("error", e.message)
+  }
+})()
+
+//create dom for listOfPopulore
+function createPro(data) {
+  data.forEach(product => {
+
+    let objTitle = product.title,
+      readyTitle = objTitle.split(' ').slice(0, 3).join(' '),
+      objPrice = product.price,
+      objImage = product.image,
+      objid = product.id;
+
+    const el = document.createElement('li'),
+      proImg = document.createElement('img'),
+      textAndImg = document.createElement('div'),
+      titleAndPrice = document.createElement('div'),
+      cartImg = document.createElement('img'),
+      proTitle = document.createElement('h3'),
+      proPrice = document.createElement('span');
+
+    listOfPopulore.appendChild(el)
+    el.appendChild(proImg)
+    el.appendChild(textAndImg)
+    textAndImg.appendChild(titleAndPrice)
+    textAndImg.appendChild(cartImg)
+    titleAndPrice.appendChild(proTitle)
+    titleAndPrice.appendChild(proPrice)
+
+    el.setAttribute("class", "item")
+    el.setAttribute("dataset", `${objid}`)
+    proImg.setAttribute("class", "imgOfPopulore")
+    proImg.setAttribute('src', `${objImage}`)
+    textAndImg.setAttribute('class', 'wrapOfText')
+    proTitle.setAttribute('class', 'title')
+    proPrice.setAttribute('class', 'price')
+    cartImg.setAttribute('src', '../assets/img/cart with plus.svg')
+    cartImg.addEventListener('click', addToCart)
+
+    proTitle.innerText = `${readyTitle}`
+    proPrice.innerText = `$${objPrice}`
+
+  });
+}
