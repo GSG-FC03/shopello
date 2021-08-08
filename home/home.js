@@ -1,8 +1,8 @@
-let isDown = false;
-let startX;
-let scrollLeft;
+//Slider for (ul.tags.items, ul.listOfPopulore.items, ul.listOfPopulore.items, ul.listOfRecommeded.items)Sections
+let isDown = false,
+  startX,
+  scrollLeft;
 const slider = Array.from(document.querySelectorAll('.items'));
-console.log(slider)
 
 const end = (e) => {
   isDown = false;
@@ -38,3 +38,33 @@ const move = (e) => {
     element.addEventListener('touchend', end);
   });
 })();
+
+//get element by id form html tags by getElementById and declared the apis
+const listOfPopulore = document.getElementById('listOfPopulore'),
+  tags = document.getElementById('tags'),
+  listOfOffers = document.getElementById('listOfOffers'),
+  listOfRecommeded = document.getElementById('listOfRecommeded'),
+  apiCate = `https://fakestoreapi.com/products/categories`,
+  baseApi = "https://fakestoreapi.com/products?limit=10";
+
+//fetch api for categories
+(async function getData() {
+  try {
+    const response = await fetch(apiCate)
+    const data = await response.json()
+    createCate(data)
+
+  } catch (e) {
+    console.log("error", e.message)
+  }
+})()
+
+//create dom for categories
+function createCate(data) {
+  data.forEach(el => {
+    const eleOfTag = document.createElement('li');
+    eleOfTag.setAttribute('class', 'item')
+    eleOfTag.innerText = `${el}`
+    tags.appendChild(eleOfTag)
+  })
+}
