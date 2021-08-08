@@ -69,13 +69,14 @@ function createCate(data) {
   })
 }
 
-//fetch api for listOfPopulore
+//fetch api for listOfPopulore, listOfOffers
 (async function getData() {
   try {
     const response = await fetch(baseApi),
       data = await response.json();
 
     createPro(data);
+    createOffer(data.reverse());
 
   } catch (e) {
     console.log("error", e.message)
@@ -120,6 +121,52 @@ function createPro(data) {
 
     proTitle.innerText = `${readyTitle}`
     proPrice.innerText = `$${objPrice}`
+
+  });
+}
+
+//create dom for listOfOffers
+function createOffer(data) {
+  data.forEach(product => {
+
+    let objImage = product.image,
+      objCate = product.category,
+      objid = product.id;
+
+    const elemOfOffer = document.createElement('li'),
+      offerCate = document.createElement('img'),
+      offSpan = document.createElement('span'),
+      wrapOfOffer = document.createElement('div'),
+      wrapOfDesc = document.createElement('div'),
+      offImg = document.createElement('img'),
+      saveUp = document.createElement('p'),
+      disc = document.createElement('p'),
+      off = document.createElement('p');
+
+    elemOfOffer.appendChild(offerCate)
+    elemOfOffer.appendChild(offSpan)
+    elemOfOffer.appendChild(wrapOfOffer)
+    wrapOfOffer.appendChild(wrapOfDesc)
+    wrapOfOffer.appendChild(offImg)
+    wrapOfDesc.appendChild(saveUp)
+    wrapOfDesc.appendChild(disc)
+    wrapOfDesc.appendChild(off)
+    listOfOffers.appendChild(elemOfOffer)
+
+    elemOfOffer.setAttribute("class", "item")
+    elemOfOffer.setAttribute("dataset", `${objid}`)
+    offerCate.setAttribute('src', `../assets/img/${objCate}.svg`)
+    offerCate.setAttribute("class", "imgOfTag")
+    offSpan.setAttribute('class', 'nameOfTag')
+    wrapOfOffer.setAttribute('class', 'wrapOfOffer')
+    wrapOfDesc.setAttribute('class', 'wrapOfDesc')
+    offImg.setAttribute('src', `${objImage}`)
+    disc.setAttribute('class', 'disc')
+
+    offSpan.innerText = `${objCate}`
+    saveUp.innerText = "Save up"
+    disc.innerText = `${Math.floor(Math.random() * 100)}%`
+    off.innerText = "Off!"
 
   });
 }
