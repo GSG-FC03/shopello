@@ -69,7 +69,7 @@ function createCate(data) {
   })
 }
 
-//fetch api for listOfPopulore, listOfOffers
+//fetch api for listOfPopulore, listOfOffers, listOfRecommeded
 (async function getData() {
   try {
     const response = await fetch(baseApi),
@@ -77,6 +77,7 @@ function createCate(data) {
 
     createPro(data);
     createOffer(data.reverse());
+    createRecomeded(data.reverse())
 
   } catch (e) {
     console.log("error", e.message)
@@ -167,6 +168,47 @@ function createOffer(data) {
     saveUp.innerText = "Save up"
     disc.innerText = `${Math.floor(Math.random() * 100)}%`
     off.innerText = "Off!"
+
+  });
+}
+
+//create dom for listOfRecommeded
+function createRecomeded(data) {
+  data.forEach(product => {
+
+    let objTitle = product.title,
+      readyTitle = objTitle.split(' ').slice(0, 2).join(' '),
+      objPrice = product.price,
+      objImage = product.image,
+      objid = product.id;
+
+    const elemOfRecom = document.createElement('li'),
+      imgOfRecom = document.createElement('img'),
+      wrapOfTitleAndPrice = document.createElement('div'),
+      proTitle = document.createElement('h3'),
+      proPrice = document.createElement('span'),
+      imgCart = document.createElement('img');
+
+    listOfRecommeded.appendChild(elemOfRecom)
+    elemOfRecom.appendChild(imgOfRecom)
+    elemOfRecom.appendChild(wrapOfTitleAndPrice)
+    elemOfRecom.appendChild(imgCart)
+    wrapOfTitleAndPrice.appendChild(proTitle)
+    wrapOfTitleAndPrice.appendChild(proPrice)
+
+    elemOfRecom.setAttribute("class", "item")
+    elemOfRecom.setAttribute("dataset", `${objid}`)
+    imgOfRecom.setAttribute("class", "imgOfRecom")
+    imgOfRecom.setAttribute('src', `${objImage}`)
+    wrapOfTitleAndPrice.setAttribute('class', 'wrapOfTitleAndPrice')
+    proTitle.setAttribute('class', 'title')
+    proPrice.setAttribute('class', 'price')
+    imgCart.setAttribute('class', 'addToCart')
+    imgCart.setAttribute('src', '../assets/img/cart with plus.svg')
+    imgCart.addEventListener('click', addToCart)
+
+    proTitle.innerText = `${readyTitle}`
+    proPrice.innerText = `$${objPrice}`
 
   });
 }
