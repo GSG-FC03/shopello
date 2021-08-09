@@ -45,7 +45,9 @@ for (let i = 0; i < products.length; i++) {
   countSection.className = "count-section";
 
   let minusBox = document.createElement("button");
+  minusBox.setAttribute('id','minusBox');
   let minus = document.createElement("img");
+  minus.setAttribute('id','minus');
   minus.src = "../assets/img/minus.svg";
   minusBox.appendChild(minus);
   minusBox.className = "svg-box";
@@ -53,8 +55,10 @@ for (let i = 0; i < products.length; i++) {
   count.className = "count";
   count.textContent = "2";
   let plusBox = document.createElement("button");
+  plusBox.setAttribute('id','plusBox');
   plusBox.className = "svg-box";
   let plus = document.createElement("img");
+  plus.setAttribute('id','plus');
   plus.src = "../assets/img/plus.svg";
   plusBox.appendChild(plus);
 
@@ -76,4 +80,28 @@ for (let i = 0; i < products.length; i++) {
   productBlock.appendChild(productData);
 
   cartList.appendChild(productBlock);
+}
+
+window.onclick = function (event) {
+  if (event.target.getAttribute("id") == "plus") {
+    event.target.parentElement.parentElement.getElementsByClassName('count')[0].textContent = increment(event.target.parentElement.parentElement.getElementsByClassName('count')[0].textContent);
+  }
+  else if(event.target.getAttribute("id") == "plusBox"){
+    event.target.parentElement.getElementsByClassName('count')[0].textContent = increment(event.target.parentElement.getElementsByClassName('count')[0].textContent);
+  }
+  else if (event.target.getAttribute("id") == "minus") {
+    event.target.parentElement.parentElement.getElementsByClassName('count')[0].textContent = decrement(event.target.parentElement.parentElement.getElementsByClassName('count')[0].textContent);
+  }
+  else if(event.target.getAttribute("id") == "minusBox"){
+    event.target.parentElement.getElementsByClassName('count')[0].textContent = decrement(event.target.parentElement.getElementsByClassName('count')[0].textContent);  }
+}
+
+
+function increment(num){
+  return parseInt(num)+1;;
+}
+function decrement(num){
+  num--;
+  if(num <1)return 1;
+  return parseInt(num);;
 }

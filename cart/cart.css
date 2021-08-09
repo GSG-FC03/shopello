@@ -169,7 +169,7 @@ html,body{
     body{
         display: flex;
         justify-content:flex-end;
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.3) ;
     }
     .back {
         background-color: rgba(0, 0, 0, 0.3);
