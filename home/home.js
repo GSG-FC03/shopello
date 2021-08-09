@@ -334,6 +334,11 @@ async function getDataDetails(id, fun) {
   }
 }
 
+function displayDetails(data){
+  localStorage.setItem('data', JSON.stringify(data))
+  location.href = '../details/details.html'
+}
+
 //add the product into object and storage it into loacal storage
 function addToCart(data) {
   unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
@@ -344,6 +349,7 @@ function addToCart(data) {
     description: "",
     category: "",
     image: "",
+    price: "",
     quantity: ""
   }
 
@@ -352,6 +358,7 @@ function addToCart(data) {
   newProduct.description = data.description
   newProduct.category = data.category
   newProduct.image = data.image
+  newProduct.price = data.price
   newProduct.quantity = 1
 
   if (unknown.Product.length == 0) {
@@ -371,5 +378,21 @@ function addToCart(data) {
   }
   localStorage.setItem("unknown", JSON.stringify(unknown));
   let count = document.getElementById('count')
+  count.style.display = 'block'
   count.textContent = unknown.Product.length;
 }
+
+let account = document.getElementById('account')
+if(unknown.Name == '') account.textContent = 'Sign up'
+else  account.textContent = unknown.Name
+
+account.addEventListener('click', ()=>{
+  if(account.textContent == 'Sign up'){
+    location.href = '../createAccount/createAccount.html'
+  }
+})
+
+let cartShow = document.getElementById('cartShow')
+cartShow.addEventListener('click', ()=>{
+    location.href = '../cart/cart.html'
+})
