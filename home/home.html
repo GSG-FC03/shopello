@@ -12,6 +12,7 @@
 
 <body>
   <div class="container">
+    <!-- Header -->
     <header>
       <h1>Shopello</h1>
       <nav class="nav">
@@ -24,126 +25,49 @@
       </nav>
     </header>
 
+    <!-- Search -->
     <section class="wrapSearch">
       <input class="search" type="search" placeholder="Search..">
       <img class="searchIcon" src="../assets/img/search.svg" loading="lazy" alt="search">
     </section>
 
+    <!-- Categories -->
     <section class="wrapTags">
-      <ul class="tags items">
-        <li class="item">Electronics</li>
-        <li class="item">Jewelery</li>
-        <li class="item">Men's Clothing</li>
-        <li class="item">Women's Clothing</li>
+      <ul id="tags" class="tags items">
       </ul>
     </section>
 
-    <main>
+    <main id="main">
+      <!-- Populore -->
       <section class="wrapPopulore">
         <div class="wrapHeading">
           <img src="../assets/img/populore.svg" loading="lazy" alt="populore">
           <h2>Populore</h2>
         </div>
 
-        <ul class="listOfPopulore items">
-          <li class="item">
-            <img class="imgOfPopulore" src="../assets/img/back.svg" loading="lazy" alt="back">
-            <div class="wrapOfText">
-              <div>
-                <h3 class="title">Contton Sweatshirt</h3>
-                <span class="price">$5.00</span>
-              </div>
-              <img src="../assets/img/cart with plus.svg" loading="lazy" alt="cart with plus">
-            </div>
-          </li>
+        <ul id="listOfPopulore" class="listOfPopulore items">
         </ul>
       </section>
 
+      <!-- Offers -->
       <section class="wrapOfOffers">
         <div class="wrapHeading">
           <img src="../assets/img/offers.svg" loading="lazy" alt="offers">
           <h2>Offers</h2>
         </div>
 
-        <ul class="listOfOffers items">
-          <li class="item">
-            <img class="imgOfTag" src="../assets/img/electronics.svg" loading="lazy" alt="electronics">
-            <span class="nameOfTag">Electronics</span>
-            <div class="wrapOfOffer">
-              <div class="wrapOfDesc">
-                <p>Save up to</p>
-                <p class="disc">55%</p>
-                <p>off!</p>
-              </div>
-              <img src="../assets/img/back.svg" loading="lazy" alt="back">
-            </div>
-          </li>
-
-          <li class="item">
-            <img class="imgOfTag" src="../assets/img/jewelery.svg" loading="lazy" alt="jewelery">
-            <span class="nameOfTag">Jewelery</span>
-            <div class="wrapOfOffer">
-              <div class="wrapOfDesc">
-                <p>Save up to</p>
-                <p class="disc">20%</p>
-                <p>off!</p>
-              </div>
-              <img src="../assets/img/back.svg" loading="lazy" alt="back">
-            </div>
-          </li>
-
-          <li class="item">
-            <img class="imgOfTag" src="../assets/img/men's Clothing.svg" loading="lazy" alt="men's Clothing">
-            <span class="nameOfTag">Men's</span>
-            <div class="wrapOfOffer">
-              <div class="wrapOfDesc">
-                <p>Save up to</p>
-                <p class="disc">35%</p>
-                <p>off!</p>
-              </div>
-              <img src="../assets/img/back.svg" loading="lazy" alt="back">
-            </div>
-          </li>
-
-          <li class="item">
-            <img class="imgOfTag" src="../assets/img/women's Clothing.svg" loading="lazy" alt="women's Clothing">
-            <span class="nameOfTag">Women's</span>
-            <div class="wrapOfOffer">
-              <div class="wrapOfDesc">
-                <p>Save up to</p>
-                <p class="disc">40%</p>
-                <p>off!</p>
-              </div>
-              <img src="../assets/img/back.svg" loading="lazy" alt="back">
-            </div>
-          </li>
+        <ul id="listOfOffers" class="listOfOffers items">
         </ul>
       </section>
 
+      <!-- Recommeded -->
       <section class="wrapOfRecommeded">
         <div class="wrapHeading">
           <img src="../assets/img/recommend.svg" loading="lazy" alt="recommend">
           <h2>We Recommend</h2>
         </div>
 
-        <ul class="listOfRecommeded items">
-          <li class="item">
-            <img class="imgOfRecom" src="../assets/img/back.svg" loading="lazy" alt="back">
-            <div class="wrapOfTitleAndPrice">
-              <h3 class="title">Contton Sweatshirt</h3>
-              <span class="price">$5.00</span>
-            </div>
-            <img class="addToCart" src="../assets/img/cart with plus.svg" loading="lazy" alt="cart with plus">
-          </li>
-
-          <li class="item">
-            <img class="imgOfRecom" src="../assets/img/back.svg" loading="lazy" alt="back">
-            <div class="wrapOfTitleAndPrice">
-              <h3 class="title">Contton Sweatshirt</h3>
-              <span class="price">$5.00</span>
-            </div>
-            <img class="addToCart" src="../assets/img/cart with plus.svg" loading="lazy" alt="cart with plus">
-          </li>
+        <ul id="listOfRecommeded" class="listOfRecommeded items">
         </ul>
       </section>
     </main>
