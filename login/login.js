@@ -13,10 +13,37 @@ function logIn(){
     let existUser = false;
     for(let i=0;i<users.length;i++){
         if(email == users[i].Email){
-            if(password == users[i].Password)
-            existUser = true;
+            if(password == users[i].Password){
+                existUser = true;
+                users[i] = mergeProduct(users[i]);
+                localStorage.setItem('users', JSON.stringify(users));
+                break;
+            }
         }
     }
     if(!existUser) message.setAttribute('style','display: block; color: red;');
+    else
+        window.location.href='../home/home.html';
 }
-// onclick="window.lgit ocation.href='../home/home.html';" 
+
+
+function mergeProduct(user){
+    let unknown = JSON.parse(localStorage.getItem("unknown"));
+    unknown.Email = user.Email;
+    unknown.Name = user.Name;
+    unknown.Password = user.Password;
+    unknown.Currency = user.Currency;
+
+    let products = [];
+    for(let i=0;i<unknown.Product.length;i++){
+        products.push(unknown.Product[i])
+    }
+    for(let i=0;i<user.Product.length;i++){
+        products.push(user.Product[i])
+    }
+
+    unknown.Product = products;
+    user.Product = products;
+
+    return user;
+}
