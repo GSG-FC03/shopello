@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url(../assets/font/Gilroy-Regular.ttf);
+}
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url(../assets/font/Gilroy-Bold.ttf);
+}
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url(../assets/font/Gilroy-Medium.ttf);
+}
+
+.backBtn{
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px 0 20px 25px;
+    padding: 0;
+    cursor: pointer;
+    font-family: 'Gilroy-Regular';
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categoryPrice{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px;
+}
+
+.category{
+    font-family: 'Gilroy-Regular';
+}
+
+.priceTag{
+    display: flex;
+    font-family: 'Gilroy-Bold';
+    font-size: 22px;
+}
+
+.title{
+    font-size: 18px;
+    margin: 0px 24px 20px 24px;
+    margin-bottom: 20px;
+    font-family: 'Gilroy-Bold';
+}
+
+.description{
+    margin: 0px 24px 30px 24px;
+    font-family: 'Gilroy-Medium';
+}
+
+.quantityPrice{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+
+}
+
+.quantity{
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.amount{
+    font-family: 'Gilroy-Regular';
+}
+
+.price{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ttl{
+    font-family: 'Gilroy-Regular'
+}
+
+.totalPrice{
+    font-family: 'Gilroy-Bold';
+    font-size: 22px;
+}
+
+.minus{
+    background-color: #F7F7F7;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+
+.plus{
+    background-color: #F7F7F7;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+}
+
+.buyAddbtns{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.buy{
+    width: 155px;
+    height: 50px;
+    background: white;
+    border: 1px solid #2CB674;
+    box-sizing: border-box;
+    border-radius: 50px;
+    color: #2CB674;
+    cursor: pointer;
+    font-family: 'Gilroy-Medium';
+    font-size: 18px;
+}
+
+.add{
+    width: 155px;
+    height: 50px;
+    background: #2CB674;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Gilroy-Medium';
+    font-size: 18px;
+}
