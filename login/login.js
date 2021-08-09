@@ -19,4 +19,4 @@ function logIn(){
     }
     if(!existUser) message.setAttribute('style','display: block; color: red;');
 }
-// onclick="window.lgit ocation.href='../home/home.html';"
+// onclick="window.lgit ocation.href='../home/home.html';" 
