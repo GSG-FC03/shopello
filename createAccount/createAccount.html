@@ -9,7 +9,7 @@
     <title>Shopello</title>
 </head>
 
-<body>
+<body class=signUpBody>
     <div>
       <!--link to login page-->
       <header class="container">
@@ -27,7 +27,8 @@
             <!--Email input and icon-->
             <div class="mailIcon">
             <label for="email">Email</label>
-            <input id="email" type="text" placeholder="Enter Your Email" name="email" required>
+            <input id="email" type="email" placeholder="Enter Your Email" name="email" required>
+            <p id="msgMail">This email has been registered</p>
             <img class="mailimg" src="../assets/img/email.svg">
             </div>
             <!-- password Input and Icons-->
@@ -45,10 +46,12 @@
             <option value=""></option>
           </select> 
         </div>
-          </div>
+        <p id="msgEmpty">Please Fill All Required Field</p>
+        </div>
         </form> 
         <!--submit button-->
         <button type="submit" class="signupbtn">Get Started</button>
     </div>
+    <script src="../createAccount/createAccount.js"></script>
 </body>
 </html>
