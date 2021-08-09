@@ -121,7 +121,7 @@
     top: 38px;
     padding: 9px 8px;
   }
-  .pswIcon input[type=password]{
+  .pswIcon input{
     padding-left: 40px;
   }
   .pswIcon img[class="hidePsw"]{
