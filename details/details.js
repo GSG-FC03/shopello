@@ -7,6 +7,7 @@ let description = document.getElementById('productDesc')
 let category = document.getElementById('productCategory')
 let image = document.getElementById('productCategory')
 let int = document.getElementById('amount');
+let currency = document.getElementById('priceTag');
 
 
 let number = 1;
@@ -42,4 +43,6 @@ function displayDetails(data) {
     description.textContent = data.description
     price.textContent = data.price 
 }
+
+
 
