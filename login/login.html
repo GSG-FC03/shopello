@@ -16,10 +16,8 @@
         <img src="../assets/img/login.svg">
     
         </header>
-        <form>
-        
-            <div class="form">
-            
+        <div>
+            <div class="form">      
             <!--Email input and icon-->
             <div class="mailIcon">
               <label for="email">Email</label>
@@ -33,11 +31,13 @@
               <img  class="pswimg" src="../assets/img/password.svg">
               <img class="hidePsw" src="../assets/img/hideEye.svg">
             </div>
-        
+            <label id="incorrctMsg" style="display: none; color: red;">Incorrect email or password</label>
           </div>
-        </form> 
-        <button type="submit" class="login-btn" onclick="window.location.href='../home/home.html';">Login</button>
+          <button type="" class="login-btn">Login</button>
+          
+        </div> 
+        
     </div>
-    <script src="../login/login.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
