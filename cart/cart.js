@@ -2,6 +2,10 @@ let cartList = document.getElementById("cartList");
 let remove_All = document.getElementById("removeAll");
 let unKnown_user = JSON.parse(localStorage.getItem("unknown"));
 let products = unKnown_user.Product;
+let count = document.getElementById("count");
+let price = document.getElementsByClassName('price')[0];
+price.textContent = totalPrice();
+count.textContent = `(${products.length} Items)`;
 createList();
 
 remove_All.setAttribute('onClick','removeAll()');
@@ -92,7 +96,7 @@ function remove(id){
     if(products[i].id == id){
       products.splice(i, 1);
     }
-  };
+  }
   location.reload();
   createList();
 }
@@ -101,6 +105,14 @@ function removeAll(){
   
   location.reload();
   createList();
+}
+
+function totalPrice(){
+  let total = 0;
+  for(let i=0;i<products.length;i++){
+    total += (parseInt(products[i].price) * parseInt(products[i].quantity));
+  }
+  return total;
 }
 
 
