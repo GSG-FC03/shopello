@@ -254,6 +254,7 @@ async function getCategoryData(apiCategory) {
 
 //create list of products and display it
 const mainOfCategory = document.createElement('main');
+
 function createProByCategory(data) {
   let mainCategory = document.getElementById('mainOfCategory')
   if (mainCategory != null) {
@@ -334,7 +335,7 @@ async function getDataDetails(id, fun) {
   }
 }
 
-function displayDetails(data){
+function displayDetails(data) {
   localStorage.setItem('data', JSON.stringify(data))
   location.href = '../details/details.html'
 }
@@ -377,22 +378,33 @@ function addToCart(data) {
     if (flag) unknown.Product.push(newProduct)
   }
   localStorage.setItem("unknown", JSON.stringify(unknown));
+  showCount()
+}
+
+//show the count of product in cart
+function showCount() {
   let count = document.getElementById('count')
+  if (unknown.Product.length > 0)
+    console.log("herer")
   count.style.display = 'block'
   count.textContent = unknown.Product.length;
 }
+showCount()
 
+//change the name depend on some state
 let account = document.getElementById('account')
-if(unknown.Name == '') account.textContent = 'Sign up'
-else  account.textContent = unknown.Name
+if (unknown.Name == '') account.textContent = 'Sign up'
+else account.textContent = unknown.Name
 
-account.addEventListener('click', ()=>{
-  if(account.textContent == 'Sign up'){
+//add link for createAccount page
+account.addEventListener('click', () => {
+  if (account.textContent == 'Sign up') {
     location.href = '../createAccount/createAccount.html'
   }
 })
 
+//add link for cart page
 let cartShow = document.getElementById('cartShow')
-cartShow.addEventListener('click', ()=>{
-    location.href = '../cart/cart.html'
+cartShow.addEventListener('click', () => {
+  location.href = '../cart/cart.html'
 })
