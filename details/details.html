@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="details.css" />
+    <title>Document</title>
+  </head>
+  <body>
+
+
+    <!-- back button -->
+    <button class="backBtn">
+      <img src="../assets/img/back.svg" alt="" />
+      Back
+    </button>
+
+    <!-- body of the detailspage -->
+    <div class="details" id="details">
+      <img src="" id ='productImage'alt="" />
+      <div class="categoryPrice">
+        <p class="category" id="productCategory">Electronic</p>
+        <div class="priceTag" id="priceTag">$
+          <div id="originalPice"></div>
+        </div>
+      </div>
+      <div class="title">
+        <p id="productTitle"></p>
+      </div>
+      <div class="description">
+        <p id="productDesc">
+        </p>
+      </div>
+
+      <!-- div to add or remove item and to calculate the total price -->
+      <div class="quantityPrice">
+        <div class="quantity">
+          <button class="minus" id="minus"><img src="../assets/img/minus.svg" alt=""></button>
+          <div class="amount" id="amount">1</div>
+          <button class="plus" id="plus"><img src="../assets/img/plus.svg" alt=""></button>
+        </div>
+        <div class="price">
+          <p class="ttl">Total:</p>
+          <div class="totalPrice" id="totalPrice"></div>
+        </div>
+      </div>
+
+      <!-- buttons to buy or add to cart -->
+      <div class="buyAddbtns">
+        <button class="buy" id="buy">Buy</button>
+        <button class="add" id="add">Add to cart</button>
+      </div>
+    </div>
+    <script src="details.js"></script>
+  </body>
+</html>
