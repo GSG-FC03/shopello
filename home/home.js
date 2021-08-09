@@ -214,3 +214,92 @@ function createRecomeded(data) {
 
   });
 }
+
+//get product by category
+function getProductByCate(e) {
+  let category = e.target.textContent;
+  let apiCategory = `https://fakestoreapi.com/products/category/${category}`
+  main.style.display = 'none'
+  getCategoryData(apiCategory);
+}
+
+//get data from apiCategory
+async function getCategoryData(apiCategory) {
+  try {
+    const response = await fetch(apiCategory)
+    const data = await response.json()
+
+    createProByCategory(data);
+
+  } catch (e) {
+    console.log("error", e.message)
+  }
+}
+
+//create list of products and display it
+const mainOfCategory = document.createElement('main');
+function createProByCategory(data) {
+  let mainCategory = document.getElementById('mainOfCategory')
+  if (mainCategory != null) {
+    mainCategory.style.display = 'block'
+  }
+
+  const sectionOfCategory = document.createElement('section'),
+    ulOfCategory = document.createElement('ul'),
+    container = document.getElementById('container');
+
+  mainOfCategory.innerHTML = "";
+  data.forEach(product => {
+
+    let objTitle = product.title,
+      readyTitle = objTitle.split(' ').slice(0, 3).join(' '),
+      objPrice = product.price,
+      objImage = product.image,
+      objid = product.id;
+
+    const elemOfCategory = document.createElement('li'),
+      proImgOfCategory = document.createElement('img'),
+      textAndImgOfCategory = document.createElement('div'),
+      titleAndPriceOfCategory = document.createElement('div'),
+      cartImgOfCategory = document.createElement('img'),
+      proTitleOfCategory = document.createElement('h3'),
+      proPriceOfCategory = document.createElement('span');
+
+    container.appendChild(mainOfCategory)
+    mainOfCategory.appendChild(sectionOfCategory)
+    sectionOfCategory.appendChild(ulOfCategory)
+    ulOfCategory.appendChild(elemOfCategory)
+    elemOfCategory.appendChild(proImgOfCategory)
+    elemOfCategory.appendChild(textAndImgOfCategory)
+    textAndImgOfCategory.appendChild(titleAndPriceOfCategory)
+    textAndImgOfCategory.appendChild(cartImgOfCategory)
+    titleAndPriceOfCategory.appendChild(proTitleOfCategory)
+    titleAndPriceOfCategory.appendChild(proPriceOfCategory)
+
+    mainOfCategory.setAttribute("id", "mainOfCategory")
+    sectionOfCategory.setAttribute("class", "wrapPopulore")
+    elemOfCategory.setAttribute("class", "item")
+    ulOfCategory.setAttribute("class", "listOfPopulore items")
+    proImgOfCategory.setAttribute("class", "imgOfPopulore")
+    proImgOfCategory.setAttribute('src', `${objImage}`)
+    textAndImgOfCategory.setAttribute('class', 'wrapOfText')
+    proTitleOfCategory.setAttribute('class', 'title')
+    proTitleOfCategory.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
+    proPriceOfCategory.setAttribute('class', 'price')
+    cartImgOfCategory.setAttribute('src', '../assets/img/cart with plus.svg')
+    cartImgOfCategory.setAttribute('onclick', `getDataDetails(${objid}, addToCart)`)
+
+    proTitleOfCategory.innerText = `${readyTitle}`
+    proPriceOfCategory.innerText = `$${objPrice}`
+  });
+}
+
+const nameOfApp = document.getElementById('nameOfApp')
+nameOfApp.addEventListener('click', showHomePage)
+
+// get back to home page from Category
+function showHomePage() {
+  let mainCategory = document.getElementById('mainOfCategory')
+  mainCategory.style.display = 'none'
+  main.style.display = 'block'
+}
