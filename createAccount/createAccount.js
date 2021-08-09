@@ -102,3 +102,19 @@ function currency() {
 }
 
 currency();
+
+//user can show or hide password
+function showPassword() {
+    const togglePassword = document.getElementsByClassName('hidePsw')[0];
+    togglePassword.onclick = function () {
+      let password = document.getElementById('password');
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      const src= togglePassword.getAttribute('src')==='../assets/img/hideEye.svg'?'../assets/img/showEye.svg':'../assets/img/hideEye.svg';
+      togglePassword.setAttribute('src',src);
+  };
+  }
+  
+  showPassword();
