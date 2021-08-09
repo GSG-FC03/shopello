@@ -47,12 +47,14 @@ html,body{
     line-height: 1.063rem;
     margin-right: 1.5rem;
 }
-.remove-text{
+.remove-button{
     color: #FA6161;
     font-weight: normal;
     font-size: 0.875rem;
     line-height: 1.063rem;
     text-decoration: underline;
+    border: none;
+    background-color: transparent;
 }
 .product-list{
     padding-bottom: 0.875rem;   
@@ -114,6 +116,7 @@ html,body{
 .count-section{
     display: flex;
     align-items: center;
+    justify-content:center;
 }
 .count{
     font-size: 1rem;
@@ -131,6 +134,7 @@ html,body{
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
+    border: hidden;
 }
 
 .cart-display{

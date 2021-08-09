@@ -39,8 +39,8 @@
                     <h2 class="normal-text cart-text" style="font-size: 1.375rem;">Your <span style="font-weight: 600; font-size: 1.375rem; ">cart is empty</span>. Please add a few products</h2>
                     <button class="cart-btn" style="width: 15.625rem; margin: 3.125rem 0;">Go to the store</button>
                 </div>
-                <div class="product-list cart-display">
-                    <div class="product-block">
+                <div class="product-list cart-display" id="cartList">
+                    <!-- <div class="product-block">
                         <div class="product-img">
                             <img src="../assets/img/model.jpg" class="product-img" alt="">
                         </div>
@@ -72,209 +72,8 @@
                                 
                             </div>
                         </div>
-                    </div>
-    
-                    <div class="product-block">
-                        <div class="product-img">
-                            <img src="../assets/img/model.jpg" class="product-img" alt="">
-                        </div>
-                        <div class="product-data">
-                            <div class="row-data"  style="margin-top: 0.8125rem;">
-                                <h2 class="normal-text" id="productName">Cotton Sweatshirt</h2>
-                                <h2 class="normal-text" id="productPrice" style="font-weight: 700;">$5.00</h2>
-                            </div>
-                            <div class="row-data">
-                                <div class="count-section"> 
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>   
-                                    </div>
-                                    
-                                    <h2 class="count">2</h2>
-    
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="#000000" class="svg" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 3.5L7 10.5" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>     
-                                </div>
-                                <div>
-                                    <h2 class="remove-text" id="remove">Remove</h2>  
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="product-block">
-                        <div class="product-img">
-                            <img src="../assets/img/model.jpg" class="product-img" alt="">
-                        </div>
-                        <div class="product-data">
-                            <div class="row-data"  style="margin-top: 0.8125rem;">
-                                <h2 class="normal-text" id="productName">Cotton Sweatshirt</h2>
-                                <h2 class="normal-text" id="productPrice" style="font-weight: 700;">$5.00</h2>
-                            </div>
-                            <div class="row-data">
-                                <div class="count-section"> 
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>   
-                                    </div>
-                                    
-                                    <h2 class="count">2</h2>
-    
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="#000000" class="svg" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 3.5L7 10.5" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>     
-                                </div>
-                                <div>
-                                    <h2 class="remove-text" id="remove">Remove</h2>  
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-block">
-                        <div class="product-img">
-                            <img src="../assets/img/model.jpg" class="product-img" alt="">
-                        </div>
-                        <div class="product-data">
-                            <div class="row-data"  style="margin-top: 0.8125rem;">
-                                <h2 class="normal-text" id="productName">Cotton Sweatshirt</h2>
-                                <h2 class="normal-text" id="productPrice" style="font-weight: 700;">$5.00</h2>
-                            </div>
-                            <div class="row-data">
-                                <div class="count-section"> 
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>   
-                                    </div>
-                                    
-                                    <h2 class="count">2</h2>
-    
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="#000000" class="svg" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 3.5L7 10.5" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>     
-                                </div>
-                                <div>
-                                    <h2 class="remove-text" id="remove">Remove</h2>  
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-block">
-                        <div class="product-img">
-                            <img src="../assets/img/model.jpg" class="product-img" alt="">
-                        </div>
-                        <div class="product-data">
-                            <div class="row-data"  style="margin-top: 0.8125rem;">
-                                <h2 class="normal-text" id="productName">Cotton Sweatshirt</h2>
-                                <h2 class="normal-text" id="productPrice" style="font-weight: 700;">$5.00</h2>
-                            </div>
-                            <div class="row-data">
-                                <div class="count-section"> 
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>   
-                                    </div>
-                                    
-                                    <h2 class="count">2</h2>
-    
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="#000000" class="svg" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 3.5L7 10.5" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>     
-                                </div>
-                                <div>
-                                    <h2 class="remove-text" id="remove">Remove</h2>  
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-block">
-                        <div class="product-img">
-                            <img src="../assets/img/model.jpg" class="product-img" alt="">
-                        </div>
-                        <div class="product-data">
-                            <div class="row-data"  style="margin-top: 0.8125rem;">
-                                <h2 class="normal-text" id="productName">Cotton Sweatshirt</h2>
-                                <h2 class="normal-text" id="productPrice" style="font-weight: 700;">$5.00</h2>
-                            </div>
-                            <div class="row-data">
-                                <div class="count-section"> 
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>   
-                                    </div>
-                                    
-                                    <h2 class="count">2</h2>
-    
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="#000000" class="svg" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 3.5L7 10.5" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>     
-                                </div>
-                                <div>
-                                    <h2 class="remove-text" id="remove">Remove</h2>  
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-block">
-                        <div class="product-img">
-                            <img src="../assets/img/model.jpg" class="product-img" alt="">
-                        </div>
-                        <div class="product-data">
-                            <div class="row-data"  style="margin-top: 0.8125rem;">
-                                <h2 class="normal-text" id="productName">Cotton Sweatshirt</h2>
-                                <h2 class="normal-text" id="productPrice" style="font-weight: 700;">$5.00</h2>
-                            </div>
-                            <div class="row-data">
-                                <div class="count-section"> 
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>   
-                                    </div>
-                                    
-                                    <h2 class="count">2</h2>
-    
-                                    <div class="svg-box">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="#000000" class="svg" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 3.5L7 10.5" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M10.5 7L3.5 7" stroke="#CCD2E3" stroke-width="2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>     
-                                </div>
-                                <div>
-                                    <h2 class="remove-text" id="remove">Remove</h2>  
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
+                    </div> -->
+                             
                 </div>
             </div>
             
@@ -290,5 +89,6 @@
             </div>
         </div>
     </div>
+    <script src="cart.js"></script>
 </body>
 </html>
