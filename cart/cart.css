@@ -188,4 +188,7 @@ html,body{
     .close{
         display: block;
     }
+    .product-list{
+        height: 70vh;
+    }
 }
