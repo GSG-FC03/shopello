@@ -62,7 +62,16 @@
 
 .description{
     margin: 0px 24px 30px 24px;
+    width: 85%;
+    height: 100px;
     font-family: 'Gilroy-Medium';
+}
+
+.description{
+    margin: 0px 24px 30px 24px;
+    font-family: 'Gilroy-Medium';
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .quantityPrice{
