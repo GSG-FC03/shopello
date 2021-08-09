@@ -17,13 +17,11 @@
     
         </header>
         <form>
-        
-            <div class="form">
-            
+            <div class="form">      
             <!--Email input and icon-->
             <div class="mailIcon">
               <label for="email">Email</label>
-              <input id="email" type="email" placeholder="Enter Your Email" name="email" required>
+              <input id="email" type="text" placeholder="Enter Your Email" name="email" required>
               <img class="mailimg" src="../assets/img/email.svg">
               </div>
               <!-- password Input and Icons-->
@@ -33,11 +31,13 @@
               <img  class="pswimg" src="../assets/img/password.svg">
               <img class="hidePsw" src="../assets/img/hideEye.svg">
             </div>
-        
+            <label id="incorrctMsg" style="display: none; color: red;">Incorrect email or password</label>
           </div>
+          
+          <button type="submit" class="login-btn">Login</button>
         </form> 
-        <button type="submit" class="login-btn" onclick="window.location.href='../home/home.html';">Login</button>
+        
     </div>
-    <script src="../login/login.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
