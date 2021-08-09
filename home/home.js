@@ -39,6 +39,22 @@ const move = (e) => {
   });
 })();
 
+//set unknown object into loacl storage
+let unknown = {
+  Name: "",
+  Email: "",
+  Password: "",
+  Currency: "",
+  Product: [],
+};
+
+if (localStorage.getItem("unknown") == null) {
+  localStorage.setItem("unknown", JSON.stringify(unknown));
+}
+
+//get unknown object into loacl storage
+unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
+
 //get element by id form html tags by getElementById and declared the apis
 const listOfPopulore = document.getElementById('listOfPopulore'),
   tags = document.getElementById('tags'),
@@ -213,4 +229,147 @@ function createRecomeded(data) {
     proPrice.innerText = `$${objPrice}`
 
   });
+}
+
+//get product by category
+function getProductByCate(e) {
+  let category = e.target.textContent;
+  let apiCategory = `https://fakestoreapi.com/products/category/${category}`
+  main.style.display = 'none'
+  getCategoryData(apiCategory);
+}
+
+//get data from apiCategory
+async function getCategoryData(apiCategory) {
+  try {
+    const response = await fetch(apiCategory)
+    const data = await response.json()
+
+    createProByCategory(data);
+
+  } catch (e) {
+    console.log("error", e.message)
+  }
+}
+
+//create list of products and display it
+const mainOfCategory = document.createElement('main');
+function createProByCategory(data) {
+  let mainCategory = document.getElementById('mainOfCategory')
+  if (mainCategory != null) {
+    mainCategory.style.display = 'block'
+  }
+
+  const sectionOfCategory = document.createElement('section'),
+    ulOfCategory = document.createElement('ul'),
+    container = document.getElementById('container');
+
+  mainOfCategory.innerHTML = "";
+  data.forEach(product => {
+
+    let objTitle = product.title,
+      readyTitle = objTitle.split(' ').slice(0, 3).join(' '),
+      objPrice = product.price,
+      objImage = product.image,
+      objid = product.id;
+
+    const elemOfCategory = document.createElement('li'),
+      proImgOfCategory = document.createElement('img'),
+      textAndImgOfCategory = document.createElement('div'),
+      titleAndPriceOfCategory = document.createElement('div'),
+      cartImgOfCategory = document.createElement('img'),
+      proTitleOfCategory = document.createElement('h3'),
+      proPriceOfCategory = document.createElement('span');
+
+    container.appendChild(mainOfCategory)
+    mainOfCategory.appendChild(sectionOfCategory)
+    sectionOfCategory.appendChild(ulOfCategory)
+    ulOfCategory.appendChild(elemOfCategory)
+    elemOfCategory.appendChild(proImgOfCategory)
+    elemOfCategory.appendChild(textAndImgOfCategory)
+    textAndImgOfCategory.appendChild(titleAndPriceOfCategory)
+    textAndImgOfCategory.appendChild(cartImgOfCategory)
+    titleAndPriceOfCategory.appendChild(proTitleOfCategory)
+    titleAndPriceOfCategory.appendChild(proPriceOfCategory)
+
+    mainOfCategory.setAttribute("id", "mainOfCategory")
+    sectionOfCategory.setAttribute("class", "wrapPopulore")
+    elemOfCategory.setAttribute("class", "item")
+    ulOfCategory.setAttribute("class", "listOfPopulore items")
+    proImgOfCategory.setAttribute("class", "imgOfPopulore")
+    proImgOfCategory.setAttribute('src', `${objImage}`)
+    textAndImgOfCategory.setAttribute('class', 'wrapOfText')
+    proTitleOfCategory.setAttribute('class', 'title')
+    proTitleOfCategory.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
+    proPriceOfCategory.setAttribute('class', 'price')
+    cartImgOfCategory.setAttribute('src', '../assets/img/cart with plus.svg')
+    cartImgOfCategory.setAttribute('onclick', `getDataDetails(${objid}, addToCart)`)
+
+    proTitleOfCategory.innerText = `${readyTitle}`
+    proPriceOfCategory.innerText = `$${objPrice}`
+  });
+}
+
+const nameOfApp = document.getElementById('nameOfApp')
+nameOfApp.addEventListener('click', showHomePage)
+
+// get back to home page from Category
+function showHomePage() {
+  let mainCategory = document.getElementById('mainOfCategory')
+  mainCategory.style.display = 'none'
+  main.style.display = 'block'
+}
+
+//get details data of product by id
+async function getDataDetails(id, fun) {
+  let apiDetails = `https://fakestoreapi.com/products/${id}`
+  try {
+    const response = await fetch(apiDetails)
+    const data = await response.json()
+
+    fun(data);
+
+  } catch (e) {
+    console.log("error", e.message)
+  }
+}
+
+//add the product into object and storage it into loacal storage
+function addToCart(data) {
+  unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
+
+  let newProduct = {
+    id: "",
+    title: "",
+    description: "",
+    category: "",
+    image: "",
+    quantity: ""
+  }
+
+  newProduct.id = data.id
+  newProduct.title = data.title
+  newProduct.description = data.description
+  newProduct.category = data.category
+  newProduct.image = data.image
+  newProduct.quantity = 1
+
+  if (unknown.Product.length == 0) {
+    unknown.Product.push(newProduct)
+  } else {
+    let flag = false
+    for (let index = 0; index < unknown.Product.length; index++) {
+      if (unknown.Product[index].id == newProduct.id) {
+        unknown.Product[index].quantity += 1;
+        flag = false
+        break;
+      } else {
+        flag = true
+      }
+    }
+    if (flag) unknown.Product.push(newProduct)
+  }
+  localStorage.setItem("unknown", JSON.stringify(unknown));
+  let count = document.getElementById('count')
+  count.textContent = unknown.Product.length;
 }
