@@ -81,3 +81,39 @@ function signUp() {
         else localStorage.setItem("users", JSON.stringify(arrayOfUser));
     }
 }
+
+//DOM and fetch api so user can choose the preferred currency 
+function currency() {
+    //getElementById("currency")
+  let selectCurrency= document.getElementById("currency");
+  //fetch api
+  fetch("https://free.currconv.com/api/v7/currencies?apiKey=f9bda67910efea269175")
+          .then((response) => {
+            if (response.status !== 200) {
+              console.log(
+                `Looks like there was a problem. Status Code: ${response.status}`
+              );
+            } else {
+              // Examine the text in the response
+              return response.json();
+            }
+          })
+          .then((data) => {
+            let currencyData = Object.values(data.results)
+            for (element of currencyData) {
+              if(element.currencySymbol!==undefined){
+              // Create option
+              const option = document.createElement("option");
+              option.innerText= element.id
+              // Append the option to the selectCurrency element
+              selectCurrency.appendChild(option);}
+    
+            
+          }
+  
+        }
+  
+        );
+  }
+  
+  currency();
