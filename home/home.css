@@ -86,8 +86,6 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* padding: 24px;
-  padding-right: 0px; */
 }
 
 nav {
@@ -130,6 +128,7 @@ h1 {
   text-align: center;
   font-family: "Gilroy-Bold";
   color: #fff;
+  display: none;
 }
 
 .wrapSearch {
