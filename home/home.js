@@ -39,6 +39,22 @@ const move = (e) => {
   });
 })();
 
+//set unknown object into loacl storage
+let unknown = {
+  Name: "",
+  Email: "",
+  Password: "",
+  Currency: "",
+  Product: [],
+};
+
+if (localStorage.getItem("unknown") == null) {
+  localStorage.setItem("unknown", JSON.stringify(unknown));
+}
+
+//get unknown object into loacl storage
+unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
+
 //get element by id form html tags by getElementById and declared the apis
 const listOfPopulore = document.getElementById('listOfPopulore'),
   tags = document.getElementById('tags'),
@@ -302,4 +318,58 @@ function showHomePage() {
   let mainCategory = document.getElementById('mainOfCategory')
   mainCategory.style.display = 'none'
   main.style.display = 'block'
+}
+
+//get details data of product by id
+async function getDataDetails(id, fun) {
+  let apiDetails = `https://fakestoreapi.com/products/${id}`
+  try {
+    const response = await fetch(apiDetails)
+    const data = await response.json()
+
+    fun(data);
+
+  } catch (e) {
+    console.log("error", e.message)
+  }
+}
+
+//add the product into object and storage it into loacal storage
+function addToCart(data) {
+  unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
+
+  let newProduct = {
+    id: "",
+    title: "",
+    description: "",
+    category: "",
+    image: "",
+    quantity: ""
+  }
+
+  newProduct.id = data.id
+  newProduct.title = data.title
+  newProduct.description = data.description
+  newProduct.category = data.category
+  newProduct.image = data.image
+  newProduct.quantity = 1
+
+  if (unknown.Product.length == 0) {
+    unknown.Product.push(newProduct)
+  } else {
+    let flag = false
+    for (let index = 0; index < unknown.Product.length; index++) {
+      if (unknown.Product[index].id == newProduct.id) {
+        unknown.Product[index].quantity += 1;
+        flag = false
+        break;
+      } else {
+        flag = true
+      }
+    }
+    if (flag) unknown.Product.push(newProduct)
+  }
+  localStorage.setItem("unknown", JSON.stringify(unknown));
+  let count = document.getElementById('count')
+  count.textContent = unknown.Product.length;
 }
