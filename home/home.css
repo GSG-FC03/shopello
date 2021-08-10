@@ -388,6 +388,87 @@ h2 {
   user-select: none;
 }
 
+.itemsSection {
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  display: none;
+}
+
+.itemsSearch {
+  margin: 15px 24px;
+  border-radius: 20px;
+  background-color: var(--Bg-Card);
+  box-shadow: 0px 8px 24px rgba(128, 128, 128, 0.15);
+}
+
+.itemSearch {
+  width: 327px;
+  height: 50px;
+  padding: 0px 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid #fff;
+}
+
+.itemSearch:hover {
+  background-color: #fff;
+  color: var(--Main-Color);
+
+}
+
+.itemSearch:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.itemSearch:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.notfound {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.notfound img {
+  margin-top: 90px;
+}
+
+.notfound h3 {
+  font-family: 'Gilroy-Bold';
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.notfound p {
+  font-family: 'Gilroy-Regular';
+  margin-top: 20px;
+  text-align: center;
+}
+
+.notfound button {
+  font-family: 'Gilroy-Medium';
+  font-size: 18px;
+  height: 50px;
+  background-color: var(--Main-Color);
+  border-radius: 50px;
+  color: #fff;
+  width: 250px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 650px) {
 
   .wrapSearch {
@@ -412,4 +493,7 @@ h2 {
     margin-top: 10px;
   }
 
+  .itemsSection {
+    top: 60px;
+  }
 }

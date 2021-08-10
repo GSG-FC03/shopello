@@ -27,12 +27,22 @@
 
     <!-- Search -->
     <section class="wrapSearch">
-      <input class="search" type="search" placeholder="Search..">
+      <input id="searchInput" class="search" type="search" placeholder="Search..">
       <img class="searchIcon" src="../assets/img/search.svg" loading="lazy" alt="search">
     </section>
 
+    <!-- Search Results -->
+    <section id="itemsSection" class="itemsSection">
+      <section id="notfound" class="notfound">
+        <img src="../assets/img/not found.svg" alt="">
+        <h3>Not Found</h3>
+        <p>We've searched more than 350 product We did not find any product for your search</p>
+        <a href="home.html"><button>Search Again</button></a>
+      </section>
+    </section>
+
     <!-- Categories -->
-    <section class="wrapTags">
+    <section id="wrapTags" class="wrapTags">
       <ul id="tags" class="tags items">
       </ul>
     </section>
