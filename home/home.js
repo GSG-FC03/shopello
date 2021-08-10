@@ -116,21 +116,22 @@ function createCate(data) {
 }
 
 //fetch api for listOfPopulore, listOfOffers, listOfRecommeded
-setTimeout(()=>{
+let dataForSearch;
+setTimeout(() => {
   (async function getData() {
     try {
       const response = await fetch(baseApi),
         data = await response.json();
-  
+      dataForSearch = data;
       createPro(data);
       createOffer(data.reverse());
       createRecomeded(data.reverse())
-  
+
     } catch (e) {
       console.log("error", e.message)
     }
   })()
-},100)
+}, 100)
 
 //create dom for listOfPopulore
 function createPro(data) {
@@ -368,6 +369,8 @@ async function getDataDetails(id, fun) {
 }
 
 function displayDetails(data) {
+  localStorage.getItem("data") === null ? [] : JSON.parse(localStorage.getItem("data"));
+  localStorage.setItem('data', JSON.stringify(''))
   localStorage.setItem('data', JSON.stringify(data))
   location.href = '../details/details.html'
 }
@@ -439,3 +442,52 @@ let cartShow = document.getElementById('cartShow')
 cartShow.addEventListener('click', () => {
   location.href = '../cart/cart.html'
 })
+
+//get element for dom and event listener (for search function)
+const wrapTags = document.getElementById('wrapTags'),
+  searchInput = document.getElementById('searchInput'),
+  itemsSection = document.getElementById('itemsSection'),
+  lists = document.createElement('ul');
+
+lists.setAttribute('class', 'itemsSearch')
+
+// searchInput.addEventListener('blur', focusInput)
+searchInput.addEventListener('keyup', search)
+
+// function focusInput() {
+//   itemsSection.style.display = 'none'
+//   searchInput.value = ''
+//   wrapTags.style.display = 'flex'
+//   main.style.display = 'block'
+// }
+
+//search function
+function search() {
+  let found = true;
+  itemsSection.style.display = 'block'
+  lists.textContent = ''
+  if (dataForSearch.length > 0 && searchInput.value !== '' && searchInput.value !== ' ') {
+    dataForSearch.forEach(el => {
+      let nameOfProduct = el.title
+      let nameOfProductSearch = el.title.toLowerCase()
+      if (nameOfProductSearch.includes(searchInput.value.toLowerCase().trim())) {
+        found = false
+        wrapTags.style.display = 'flex'
+        main.style.display = 'block'
+        notfound.style.display = 'none'
+        const list = document.createElement('li')
+        list.textContent = nameOfProduct.split(' ').splice(0, 5).join(' ')
+        list.setAttribute('class', 'itemSearch')
+        list.setAttribute('onclick', `getDataDetails(${el.id},displayDetails)`)
+        lists.appendChild(list)
+      }
+    })
+    if (found) {
+      let notfound = document.getElementById('notfound')
+      wrapTags.style.display = 'none'
+      main.style.display = 'none'
+      notfound.style.display = 'flex'
+    }
+  }
+  itemsSection.appendChild(lists)
+}
