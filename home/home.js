@@ -55,6 +55,34 @@ if (localStorage.getItem("unknown") == null) {
 //get unknown object into loacl storage
 unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
 
+//fetch currencies and exchange prices 
+let Currency,
+  rate = 1,
+  symbol = '$';
+if (unknown.Currency == '') Currency = 'USD'
+else {
+  Currency = unknown.Currency
+  symbol = Currency
+  let from = "USD",
+    to = Currency;
+
+  (async function getData() {
+    try {
+      const response = await fetch(`https://currency-exchange.p.rapidapi.com/exchange?to=${to}&from=${from}&q=1.0`, {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-key": "6155594c89msh387173eac4635c0p108063jsnee1a9a20e441",
+          "x-rapidapi-host": "currency-exchange.p.rapidapi.com"
+        }
+      })
+      const data = await response.json()
+      rate = data;
+    } catch (e) {
+      console.log("error", e.message)
+    }
+  })()
+}
+
 //get element by id form html tags by getElementById and declared the apis
 const listOfPopulore = document.getElementById('listOfPopulore'),
   tags = document.getElementById('tags'),
@@ -88,19 +116,21 @@ function createCate(data) {
 }
 
 //fetch api for listOfPopulore, listOfOffers, listOfRecommeded
-(async function getData() {
-  try {
-    const response = await fetch(baseApi),
-      data = await response.json();
-
-    createPro(data);
-    createOffer(data.reverse());
-    createRecomeded(data.reverse())
-
-  } catch (e) {
-    console.log("error", e.message)
-  }
-})()
+setTimeout(()=>{
+  (async function getData() {
+    try {
+      const response = await fetch(baseApi),
+        data = await response.json();
+  
+      createPro(data);
+      createOffer(data.reverse());
+      createRecomeded(data.reverse())
+  
+    } catch (e) {
+      console.log("error", e.message)
+    }
+  })()
+},100)
 
 //create dom for listOfPopulore
 function createPro(data) {
@@ -108,7 +138,8 @@ function createPro(data) {
 
     let objTitle = product.title,
       readyTitle = objTitle.split(' ').slice(0, 3).join(' '),
-      objPrice = product.price,
+      exPrice = product.price * rate,
+      objPrice = exPrice.toFixed(2),
       objImage = product.image,
       objid = product.id;
 
@@ -139,7 +170,7 @@ function createPro(data) {
     cartImg.setAttribute('onclick', `getDataDetails(${objid}, addToCart)`)
 
     proTitle.innerText = `${readyTitle}`
-    proPrice.innerText = `$${objPrice}`
+    proPrice.innerText = `${symbol} ${objPrice}`
 
   });
 }
@@ -184,7 +215,7 @@ function createOffer(data) {
 
     offSpan.innerText = `${objCate}`
     saveUp.innerText = "Save up"
-    disc.innerText = `${Math.floor(Math.random() * 100)}%`
+    disc.innerText = `${Math.floor(Math.random() * 50)}%`
     off.innerText = "Off!"
 
   });
@@ -196,7 +227,8 @@ function createRecomeded(data) {
 
     let objTitle = product.title,
       readyTitle = objTitle.split(' ').slice(0, 2).join(' '),
-      objPrice = product.price,
+      exPrice = product.price * rate,
+      objPrice = exPrice.toFixed(2),
       objImage = product.image,
       objid = product.id;
 
@@ -226,7 +258,7 @@ function createRecomeded(data) {
     imgCart.setAttribute('onclick', `getDataDetails(${objid},addToCart)`)
 
     proTitle.innerText = `${readyTitle}`
-    proPrice.innerText = `$${objPrice}`
+    proPrice.innerText = `${symbol} ${objPrice}`
 
   });
 }
@@ -385,8 +417,7 @@ function addToCart(data) {
 function showCount() {
   let count = document.getElementById('count')
   if (unknown.Product.length > 0)
-    console.log("herer")
-  count.style.display = 'block'
+    count.style.display = 'block'
   count.textContent = unknown.Product.length;
 }
 showCount()
