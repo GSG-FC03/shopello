@@ -59,6 +59,12 @@ body{
     font-family: "Gilroy-Bold";
     font-size: 22px;
     justify-content: space-between;
+    align-items: flex-end;
+}
+
+#priceTag{
+  font-family: 'Gilroy-Regular';
+  font-size: 16px;
 }
 
 
@@ -110,7 +116,7 @@ body{
 .price {
   display: flex;
     flex-direction: row;
-    width: 30%;
+    width: 35%;
     align-items: center;
     justify-content: space-between;
 }
@@ -120,8 +126,19 @@ body{
 }
 
 .totalPrice {
+  display: flex;
+  width: 65px;
+  flex-direction: row;
+  align-items: flex-end;
   font-family: "Gilroy-Bold";
   font-size: 22px;
+  justify-content: space-between;
+}
+
+.totalPrice #priceTag{
+  font-family: 'Gilroy-Regular';
+  font-size: 16px;
+  margin-left: 7px;
 }
 
 .minus {

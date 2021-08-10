@@ -16,9 +16,8 @@ let unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localSt
 
 
 
-
 //fetch currencies and exchange prices 
-unknown.Currency = 'EUR'
+unknown.Currency = 'USD'
 let Currency,
   rate = 1,
   symbol = '$';
@@ -65,10 +64,15 @@ function displayDetails(data) {
     priceTotal = parseInt(price.textContent);
     console.log(price.textContent)
     total.textContent = price.textContent
+    let currencyDiv = document.createElement('div')
+    currencyDiv.setAttribute('id', 'priceTag')
+    currencyDiv.textContent = currencySymbol.textContent
+    total.appendChild(currencyDiv)
+
 }
 
-let number = 1;
 
+let number = 1;
 
 // to add an item.
 add.addEventListener('click', () =>{
@@ -76,6 +80,10 @@ add.addEventListener('click', () =>{
     priceTotal += parseInt(price.textContent);
     int.textContent = number;
     total.textContent = priceTotal;
+    let currencyDiv = document.createElement('div')
+    currencyDiv.setAttribute('id', 'priceTag')
+    currencyDiv.textContent = currencySymbol.textContent
+    total.appendChild(currencyDiv)
 })
 
 // to remove an item.
@@ -85,6 +93,10 @@ remove.addEventListener('click', () =>{
         priceTotal -= parseInt(price.textContent);
         int.textContent = number;
         total.textContent = priceTotal;
+        let currencyDiv = document.createElement('div')
+        currencyDiv.setAttribute('id', 'priceTag')
+        currencyDiv.textContent = currencySymbol.textContent
+        total.appendChild(currencyDiv)
     }
    
 })
@@ -149,7 +161,7 @@ buy.addEventListener('click', ()=>{
 
 setTimeout(() =>{
     displayDetails(data)
-}, 1000)
+}, 500)
 
 
 
