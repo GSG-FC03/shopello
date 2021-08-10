@@ -12,12 +12,15 @@ let addCart = document.getElementById('add');
 let currencySymbol = document.getElementById('priceTag');
 let buyMsg = document.getElementById('buyMsg');
 
+
 let unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
 
 
 
 //fetch currencies and exchange prices 
 unknown.Currency = 'USD'
+
+
 let Currency,
   rate = 1,
   symbol = '$';
@@ -47,6 +50,25 @@ else {
 }
 
 
+let priceTotal
+
+// to get the producat information and display iton the page.
+let data = localStorage.getItem("data") === null ? [] : JSON.parse(localStorage.getItem("data"));
+console.log(data)
+function displayDetails(data) {
+    currencySymbol.textContent = symbol
+    image.setAttribute('src', `${data.image}`)
+    category.textContent = data.category
+    title.textContent = data.title 
+    description.textContent = data.description
+    let exchangePrice = data.price * rate 
+    price.textContent = exchangePrice.toFixed(2) 
+    priceTotal = parseInt(price.textContent);
+    console.log(price.textContent)
+    total.textContent = price.textContent
+}
+
+
 
 let priceTotal
 let currencyDiv = document.createElement('div')
@@ -70,6 +92,7 @@ function displayDetails(data) {
     total.appendChild(currencyDiv)
 
 }
+
 
 
 let number = 1;
@@ -154,12 +177,17 @@ buy.addEventListener('click', ()=>{
         window.location.href = '../createAccount/createAccount.html'
     }
     else
+
     buyMsg.style.display = 'block'
+
 })
 
 setTimeout(() =>{
     displayDetails(data)
 }, 500)
+=======
+
+
 
 
 

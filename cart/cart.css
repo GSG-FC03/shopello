@@ -3,6 +3,36 @@
     font-family:'Gilroy';
     font-size: 16px;
 }
+@font-face {
+    font-family: "Gilroy-Light";
+    src: url("../assets/font/Gilroy-Light.ttf");
+  }
+  
+  @font-face {
+    font-family: "Gilroy-Regular";
+    src: url("../assets/font/Gilroy-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "Gilroy-Medium";
+    src: url("../assets/font/Gilroy-Medium.ttf");
+  }
+  
+  @font-face {
+    font-family: "Gilroy-Bold";
+    src: url("../assets/font/Gilroy-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "Gilroy-ExtraBold";
+    src: url("../assets/font/Gilroy-ExtraBold.otf");
+  }
+  
+  @font-face {
+    font-family: "Gilroy-Heavy";
+    src: url("../assets/font/Gilroy-Heavy.ttf");
+  }
+  
 html,body{
     height:100%;
 }
@@ -23,6 +53,7 @@ html,body{
     display: flex;
     flex-direction: column;
     justify-content:space-between;
+    align-items: center;
     height:150%;
 }
 .cart-top{
@@ -93,8 +124,9 @@ html,body{
     align-items: center;
     box-shadow: 0 0.5rem 1.5rem rgba(128, 128, 128, 0.15);
     border-radius: 1.25rem;
-    margin: 0 1.5rem 1.25rem 1.5rem;
+    margin: 0 1rem 1.25rem 1rem;
     padding: 0.625rem;
+    width: 85vw;
 }
 .product-img{
     height: 5rem;
@@ -142,6 +174,7 @@ html,body{
 }
 .empty-cart{
     display: none; /*display:flex to show empty card page*/
+    margin-top: 6rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -160,6 +193,7 @@ html,body{
 }
 .cart-bottom{
     margin-top: 1rem;
+    width: 100%;
 }
 .close{
     margin-left: 1rem;
@@ -191,4 +225,79 @@ html,body{
     .product-list{
         height: 70vh;
     }
+    .product-block{
+        width: 35vw;
+        margin: 0 1.5rem 1.25rem 1.5rem;
+    }
 }
+
+.buyMsg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.3);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+  
+  .msgcontainer h1 {
+    font-family: "Gilroy-Bold";
+    font-size: 22px;
+    margin-top: 30px;
+  }
+  
+  .msgBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .msgcontainer {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24vh;
+    background: #ffffff;
+    box-shadow: 0px 8px 24px rgba(128, 128, 128, 0.15);
+    border-radius: 20px;
+    position: relative;
+  }
+  .msgcontainer p {
+    font-size: 18px;
+    font-family: "Gilroy-Regular";
+    padding-right: 11px;
+    margin-left: 19px;
+    margin-right: 20px;
+    text-align: center;
+    margin-bottom: 39px;
+    margin-top: 20px;
+  }
+  
+  .submitBtn {
+    background-color: #2cb674;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    height: 50px;
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+  }
+  
+  .plus {
+    width: 28.21px;
+    height: 28.21px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: 88%;
+    left: 85%;
+    border: none;
+    cursor: pointer;
+  }

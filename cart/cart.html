@@ -37,7 +37,7 @@
                 <div class="empty-cart">
                     <img class="empty-img" src="../assets/img/empty cart.svg" alt="">
                     <h2 class="normal-text cart-text" style="font-size: 1.375rem;">Your <span style="font-weight: 600; font-size: 1.375rem; ">cart is empty</span>. Please add a few products</h2>
-                    <button class="cart-btn" style="width: 15.625rem; margin: 3.125rem 0;">Go to the store</button>
+                    <a href="../home/home.html"><button class="cart-btn" style="width: 15.625rem; margin: 3.125rem 0;">Go to the store</button></a>
                 </div>
                 <div class="product-list cart-display" id="cartList">
                     <!-- <div class="product-block">
@@ -77,18 +77,40 @@
                 </div>
             </div>
             
-            <div class="cart-bottom cart-display">
+            <div class="cart-bottom cart-display" id="cart-bottom">
                 <div class="price-block">
                     <h2 class="normal-text">Togather to pay</h2>
                     <h2 class="price" style="font-size: 1.25rem;"> $86.66</h2>
                 </div>
                 <div class="buy-block">
                     <a href="../home/home.html" style="text-decoration: none;"> <h2 class="normal-text" style=" cursor: pointer; color: #2CB674; font-size: 1.125rem;">Add more items</h2></a>
-                    <button class="cart-btn">Buy</button>
+                    <button class="cart-btn" id="buy">Buy</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="cart.js"></script>
+
+    <section class="buyMsg" id="buyMsg">
+        <header class="msgBody">
+          <div class="msgcontainer">
+            <img
+              class="plus"
+              src="../assets/img/plus.svg"
+              onclick="window.location.href='../home/home.html';"
+            />
+            <img class="success" src="../assets/img/successful.svg" />
+            <h1>Successful</h1>
+            <p>Congrats! You successfully bought your items</p>
+            <button
+              type="submit"
+              class="submitBtn"
+              onclick="window.location.href='../home/home.html';"
+            >
+              Go to the store
+            </button>
+          </div>
+        </header>
+      </section>
 </body>
 </html>
