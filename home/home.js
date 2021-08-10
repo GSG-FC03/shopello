@@ -55,6 +55,34 @@ if (localStorage.getItem("unknown") == null) {
 //get unknown object into loacl storage
 unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
 
+//fetch currencies and exchange prices 
+let Currency,
+  rate = 1,
+  symbol = '$';
+if (unknown.Currency == '') Currency = 'USD'
+else {
+  Currency = unknown.Currency
+  symbol = Currency
+  let from = "USD",
+    to = Currency;
+
+  (async function getData() {
+    try {
+      const response = await fetch(`https://currency-exchange.p.rapidapi.com/exchange?to=${to}&from=${from}&q=1.0`, {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-key": "6155594c89msh387173eac4635c0p108063jsnee1a9a20e441",
+          "x-rapidapi-host": "currency-exchange.p.rapidapi.com"
+        }
+      })
+      const data = await response.json()
+      rate = data;
+    } catch (e) {
+      console.log("error", e.message)
+    }
+  })()
+}
+
 //get element by id form html tags by getElementById and declared the apis
 const listOfPopulore = document.getElementById('listOfPopulore'),
   tags = document.getElementById('tags'),
@@ -88,19 +116,21 @@ function createCate(data) {
 }
 
 //fetch api for listOfPopulore, listOfOffers, listOfRecommeded
-(async function getData() {
-  try {
-    const response = await fetch(baseApi),
-      data = await response.json();
-
-    createPro(data);
-    createOffer(data.reverse());
-    createRecomeded(data.reverse())
-
-  } catch (e) {
-    console.log("error", e.message)
-  }
-})()
+setTimeout(()=>{
+  (async function getData() {
+    try {
+      const response = await fetch(baseApi),
+        data = await response.json();
+  
+      createPro(data);
+      createOffer(data.reverse());
+      createRecomeded(data.reverse())
+  
+    } catch (e) {
+      console.log("error", e.message)
+    }
+  })()
+},100)
 
 //create dom for listOfPopulore
 function createPro(data) {
@@ -108,7 +138,8 @@ function createPro(data) {
 
     let objTitle = product.title,
       readyTitle = objTitle.split(' ').slice(0, 3).join(' '),
-      objPrice = product.price,
+      exPrice = product.price * rate,
+      objPrice = exPrice.toFixed(2),
       objImage = product.image,
       objid = product.id;
 
@@ -139,7 +170,7 @@ function createPro(data) {
     cartImg.setAttribute('onclick', `getDataDetails(${objid}, addToCart)`)
 
     proTitle.innerText = `${readyTitle}`
-    proPrice.innerText = `$${objPrice}`
+    proPrice.innerText = `${symbol} ${objPrice}`
 
   });
 }
@@ -184,7 +215,7 @@ function createOffer(data) {
 
     offSpan.innerText = `${objCate}`
     saveUp.innerText = "Save up"
-    disc.innerText = `${Math.floor(Math.random() * 100)}%`
+    disc.innerText = `${Math.floor(Math.random() * 50)}%`
     off.innerText = "Off!"
 
   });
@@ -196,7 +227,8 @@ function createRecomeded(data) {
 
     let objTitle = product.title,
       readyTitle = objTitle.split(' ').slice(0, 2).join(' '),
-      objPrice = product.price,
+      exPrice = product.price * rate,
+      objPrice = exPrice.toFixed(2),
       objImage = product.image,
       objid = product.id;
 
@@ -226,7 +258,7 @@ function createRecomeded(data) {
     imgCart.setAttribute('onclick', `getDataDetails(${objid},addToCart)`)
 
     proTitle.innerText = `${readyTitle}`
-    proPrice.innerText = `$${objPrice}`
+    proPrice.innerText = `${symbol} ${objPrice}`
 
   });
 }
@@ -254,6 +286,7 @@ async function getCategoryData(apiCategory) {
 
 //create list of products and display it
 const mainOfCategory = document.createElement('main');
+
 function createProByCategory(data) {
   let mainCategory = document.getElementById('mainOfCategory')
   if (mainCategory != null) {
@@ -334,7 +367,7 @@ async function getDataDetails(id, fun) {
   }
 }
 
-function displayDetails(data){
+function displayDetails(data) {
   localStorage.setItem('data', JSON.stringify(data))
   location.href = '../details/details.html'
 }
@@ -377,22 +410,32 @@ function addToCart(data) {
     if (flag) unknown.Product.push(newProduct)
   }
   localStorage.setItem("unknown", JSON.stringify(unknown));
-  let count = document.getElementById('count')
-  count.style.display = 'block'
-  count.textContent = unknown.Product.length;
+  showCount()
 }
 
-let account = document.getElementById('account')
-if(unknown.Name == '') account.textContent = 'Sign up'
-else  account.textContent = unknown.Name
+//show the count of product in cart
+function showCount() {
+  let count = document.getElementById('count')
+  if (unknown.Product.length > 0)
+    count.style.display = 'block'
+  count.textContent = unknown.Product.length;
+}
+showCount()
 
-account.addEventListener('click', ()=>{
-  if(account.textContent == 'Sign up'){
+//change the name depend on some state
+let account = document.getElementById('account')
+if (unknown.Name == '') account.textContent = 'Sign up'
+else account.textContent = unknown.Name
+
+//add link for createAccount page
+account.addEventListener('click', () => {
+  if (account.textContent == 'Sign up') {
     location.href = '../createAccount/createAccount.html'
   }
 })
 
+//add link for cart page
 let cartShow = document.getElementById('cartShow')
-cartShow.addEventListener('click', ()=>{
-    location.href = '../cart/cart.html'
+cartShow.addEventListener('click', () => {
+  location.href = '../cart/cart.html'
 })
