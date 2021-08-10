@@ -29,7 +29,6 @@ function createList(){
     productBlock.className = "product-block";
   
     let productImg = document.createElement("div");
-    //  productImg.className = "product-img";
     let img = document.createElement("img");
     img.src = products[i].image;
     img.className = "product-img";
@@ -99,6 +98,7 @@ function createList(){
   
     cartList.appendChild(productBlock);
   }
+  price.textContent = totalPrice();
 }
 
 function remove(id){
@@ -120,9 +120,9 @@ function removeAll(){
 function totalPrice(){
   let total = 0;
   for(let i=0;i<products.length;i++){
-    total += (parseInt(products[i].price) * parseInt(products[i].quantity));
+    total += (parseFloat(products[i].price) * parseInt(products[i].quantity));
   }
-  return total;
+  return '$'+total;
 }
 
 
