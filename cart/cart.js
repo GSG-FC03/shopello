@@ -4,6 +4,10 @@ let unKnown_user = JSON.parse(localStorage.getItem("unknown"));
 let products = unKnown_user.Product;
 let count = document.getElementById("count");
 let price = document.getElementsByClassName('price')[0];
+let cartTop = document.getElementsByClassName('cart-top')[0];
+let cartBottom = document.getElementById("cart-bottom");
+let emptyCart = document.getElementsByClassName('empty-cart')[0];
+
 price.textContent = totalPrice();
 count.textContent = `(${products.length} Items)`;
 createList();
@@ -11,6 +15,12 @@ createList();
 remove_All.setAttribute('onClick','removeAll()');
 
 function createList(){
+  if(products.length == 0){
+    emptyCart.setAttribute('style','display: block;')
+    cartList.setAttribute('style','display: none;')
+    cartBottom.setAttribute('style','display: none;')
+    cartTop.setAttribute('style','display: none;')
+  }
   
   for (let i = 0; i < products.length; i++) {
     if (products[i].id == "") continue;
