@@ -84,11 +84,33 @@
                 </div>
                 <div class="buy-block">
                     <a href="../home/home.html" style="text-decoration: none;"> <h2 class="normal-text" style=" cursor: pointer; color: #2CB674; font-size: 1.125rem;">Add more items</h2></a>
-                    <button class="cart-btn">Buy</button>
+                    <button class="cart-btn" id="buy">Buy</button>
                 </div>
             </div>
         </div>
     </div>
     <script src="cart.js"></script>
+
+    <section class="buyMsg" id="buyMsg">
+        <header class="msgBody">
+          <div class="msgcontainer">
+            <img
+              class="plus"
+              src="../assets/img/plus.svg"
+              onclick="window.location.href='../home/home.html';"
+            />
+            <img class="success" src="../assets/img/successful.svg" />
+            <h1>Successful</h1>
+            <p>Congrats! You successfully bought your items</p>
+            <button
+              type="submit"
+              class="submitBtn"
+              onclick="window.location.href='../home/home.html';"
+            >
+              Go to the store
+            </button>
+          </div>
+        </header>
+      </section>
 </body>
 </html>
