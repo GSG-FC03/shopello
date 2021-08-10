@@ -4,6 +4,10 @@ let unKnown_user = JSON.parse(localStorage.getItem("unknown"));
 let products = unKnown_user.Product;
 let count = document.getElementById("count");
 let price = document.getElementsByClassName('price')[0];
+let cartTop = document.getElementsByClassName('cart-top')[0];
+let cartBottom = document.getElementById("cart-bottom");
+let emptyCart = document.getElementsByClassName('empty-cart')[0];
+
 price.textContent = totalPrice();
 count.textContent = `(${products.length} Items)`;
 createList();
@@ -11,15 +15,20 @@ createList();
 remove_All.setAttribute('onClick','removeAll()');
 
 function createList(){
+  if(products.length == 0){
+    emptyCart.setAttribute('style','display: block;')
+    cartList.setAttribute('style','display: none;')
+    cartBottom.setAttribute('style','display: none;')
+    cartTop.setAttribute('style','display: none;')
+  }
+  cartList.innerHTML = '';
   
   for (let i = 0; i < products.length; i++) {
     if (products[i].id == "") continue;
-  
     let productBlock = document.createElement("div");
     productBlock.className = "product-block";
   
     let productImg = document.createElement("div");
-    //  productImg.className = "product-img";
     let img = document.createElement("img");
     img.src = products[i].image;
     img.className = "product-img";
@@ -35,12 +44,12 @@ function createList(){
   
     let productName = document.createElement("h2");
     productName.className = "normal-text";
-    productName.textContent = products[i].title.split(" ").slice(0, 3).join(" ");
+    productName.textContent = products[i].title.split(" ").slice(0, 2).join(" ");
   
     let productPrice = document.createElement("h2");
     productPrice.className = "normal-text";
     productPrice.setAttribute("style", "font-weight: 700;");
-    productPrice.textContent = "$" + products[i].price;
+    productPrice.textContent = "$" + (parseFloat(products[i].price) * parseInt(products[i].quantity)).toFixed(2);;
   
     dataRow_1.appendChild(productName);
     dataRow_1.appendChild(productPrice);
@@ -89,6 +98,7 @@ function createList(){
   
     cartList.appendChild(productBlock);
   }
+  price.textContent = totalPrice();
 }
 
 function remove(id){
@@ -110,9 +120,9 @@ function removeAll(){
 function totalPrice(){
   let total = 0;
   for(let i=0;i<products.length;i++){
-    total += (parseInt(products[i].price) * parseInt(products[i].quantity));
+    total += (parseFloat(products[i].price) * parseInt(products[i].quantity));
   }
-  return total;
+  return '$'+total.toFixed(2);;
 }
 
 
@@ -141,6 +151,7 @@ window.onclick = function (event) {
 
   unKnown_user.Product = products;
   localStorage.setItem('unknown',JSON.stringify(unKnown_user));
+  createList();
 };
 
 function increment(num) {
@@ -155,7 +166,7 @@ function decrement(num) {
 
 function getIndexOfProduct(name){
   for (let i = 0; i < products.length; i++) {
-    if(name == products[i].title.split(" ").slice(0, 3).join(" "))
+    if(name == products[i].title.split(" ").slice(0, 2).join(" "))
       return i;
     
   }
