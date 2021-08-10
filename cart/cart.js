@@ -44,12 +44,12 @@ function createList(){
   
     let productName = document.createElement("h2");
     productName.className = "normal-text";
-    productName.textContent = products[i].title.split(" ").slice(0, 3).join(" ");
+    productName.textContent = products[i].title.split(" ").slice(0, 2).join(" ");
   
     let productPrice = document.createElement("h2");
     productPrice.className = "normal-text";
     productPrice.setAttribute("style", "font-weight: 700;");
-    productPrice.textContent = "$" + (parseFloat(products[i].price) * parseInt(products[i].quantity));
+    productPrice.textContent = "$" + (parseFloat(products[i].price) * parseInt(products[i].quantity)).toFixed(2);;
   
     dataRow_1.appendChild(productName);
     dataRow_1.appendChild(productPrice);
@@ -122,7 +122,7 @@ function totalPrice(){
   for(let i=0;i<products.length;i++){
     total += (parseFloat(products[i].price) * parseInt(products[i].quantity));
   }
-  return '$'+total;
+  return '$'+total.toFixed(2);;
 }
 
 
@@ -166,7 +166,7 @@ function decrement(num) {
 
 function getIndexOfProduct(name){
   for (let i = 0; i < products.length; i++) {
-    if(name == products[i].title.split(" ").slice(0, 3).join(" "))
+    if(name == products[i].title.split(" ").slice(0, 2).join(" "))
       return i;
     
   }

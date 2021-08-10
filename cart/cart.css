@@ -94,8 +94,9 @@ html,body{
     align-items: center;
     box-shadow: 0 0.5rem 1.5rem rgba(128, 128, 128, 0.15);
     border-radius: 1.25rem;
-    margin: 0 1.5rem 1.25rem 1.5rem;
+    margin: 0 1rem 1.25rem 1rem;
     padding: 0.625rem;
+    width: 85vw;
 }
 .product-img{
     height: 5rem;
@@ -162,6 +163,7 @@ html,body{
 }
 .cart-bottom{
     margin-top: 1rem;
+    width: 100%;
 }
 .close{
     margin-left: 1rem;
@@ -192,5 +194,9 @@ html,body{
     }
     .product-list{
         height: 70vh;
+    }
+    .product-block{
+        width: 35vw;
+        margin: 0 1.5rem 1.25rem 1.5rem;
     }
 }
