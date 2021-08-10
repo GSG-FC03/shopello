@@ -21,10 +21,10 @@ function createList(){
     cartBottom.setAttribute('style','display: none;')
     cartTop.setAttribute('style','display: none;')
   }
+  cartList.innerHTML = '';
   
   for (let i = 0; i < products.length; i++) {
     if (products[i].id == "") continue;
-  
     let productBlock = document.createElement("div");
     productBlock.className = "product-block";
   
@@ -50,7 +50,7 @@ function createList(){
     let productPrice = document.createElement("h2");
     productPrice.className = "normal-text";
     productPrice.setAttribute("style", "font-weight: 700;");
-    productPrice.textContent = "$" + products[i].price;
+    productPrice.textContent = "$" + (parseFloat(products[i].price) * parseInt(products[i].quantity));
   
     dataRow_1.appendChild(productName);
     dataRow_1.appendChild(productPrice);
@@ -151,6 +151,7 @@ window.onclick = function (event) {
 
   unKnown_user.Product = products;
   localStorage.setItem('unknown',JSON.stringify(unKnown_user));
+  createList();
 };
 
 function increment(num) {
