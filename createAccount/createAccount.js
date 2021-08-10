@@ -72,36 +72,38 @@ function signUp() {
 }
 
 //DOM and fetch api so user can choose the preferred currency 
-function currency() {
-    //getElementById("currency")
-    let selectCurrency = document.getElementById("currency");
-    //fetch api
-    fetch("https://free.currconv.com/api/v7/currencies?apiKey=f9bda67910efea269175")
-        .then((response) => {
-            if (response.status !== 200) {
-                console.log(
-                    `Looks like there was a problem. Status Code: ${response.status}`
-                );
-            } else {
-                // Examine the text in the response
-                return response.json();
+
+//getElementById("currency")
+let selectCurrency = document.getElementById("currency");
+//fetch api
+(async function getData() {
+    try {
+        const response = await fetch("https://currency-exchange.p.rapidapi.com/listquotes", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "6155594c89msh387173eac4635c0p108063jsnee1a9a20e441",
+                "x-rapidapi-host": "currency-exchange.p.rapidapi.com"
             }
         })
-        .then((data) => {
-            let currencyData = Object.values(data.results)
-            for (element of currencyData) {
-                if (element.currencySymbol !== undefined) {
-                    // Create option
-                    const option = document.createElement("option");
-                    option.innerText = element.id
-                    // Append the option to the selectCurrency element
-                    selectCurrency.appendChild(option);
-                }
-            }
-        });
-}
+        const data = await response.json()
+        makeSelectCurrency(data)
+    } catch (e) {
+        console.log("error", e.message)
+    }
+})()
 
-currency();
+function makeSelectCurrency(data) {
+    const optionILS = document.createElement("option");
+    optionILS.innerText = 'ILS'
+    selectCurrency.appendChild(optionILS);
+    data.forEach(el => {
+        // Create option
+        const option = document.createElement("option");
+        option.innerText = el
+        // Append the option to the selectCurrency element
+        selectCurrency.appendChild(option);
+    })
+}
 
 //user can show or hide password
 function showPassword() {
