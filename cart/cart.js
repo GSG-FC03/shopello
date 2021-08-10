@@ -172,3 +172,14 @@ function getIndexOfProduct(name){
   }
 }
 
+let buy = document.getElementById('buy');
+
+buy.addEventListener('click', ()=>{
+  console.log('dsdsdds')
+  let unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorage.getItem("unknown"));
+  if(unknown.Name === ''){
+      window.location.href = '../createAccount/createAccount.html'
+  }
+  else
+  buyMsg.style.display = 'block'
+})
