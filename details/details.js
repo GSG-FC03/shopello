@@ -49,6 +49,7 @@ else {
 
 
 let priceTotal
+let currencyDiv = document.createElement('div')
 
 // to get the producat information and display iton the page.
 let data = localStorage.getItem("data") === null ? [] : JSON.parse(localStorage.getItem("data"));
@@ -64,7 +65,6 @@ function displayDetails(data) {
     priceTotal = parseInt(price.textContent);
     console.log(price.textContent)
     total.textContent = price.textContent
-    let currencyDiv = document.createElement('div')
     currencyDiv.setAttribute('id', 'priceTag')
     currencyDiv.textContent = currencySymbol.textContent
     total.appendChild(currencyDiv)
@@ -80,7 +80,6 @@ add.addEventListener('click', () =>{
     priceTotal += parseInt(price.textContent);
     int.textContent = number;
     total.textContent = priceTotal;
-    let currencyDiv = document.createElement('div')
     currencyDiv.setAttribute('id', 'priceTag')
     currencyDiv.textContent = currencySymbol.textContent
     total.appendChild(currencyDiv)
@@ -93,7 +92,6 @@ remove.addEventListener('click', () =>{
         priceTotal -= parseInt(price.textContent);
         int.textContent = number;
         total.textContent = priceTotal;
-        let currencyDiv = document.createElement('div')
         currencyDiv.setAttribute('id', 'priceTag')
         currencyDiv.textContent = currencySymbol.textContent
         total.appendChild(currencyDiv)
