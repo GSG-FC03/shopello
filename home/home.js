@@ -167,7 +167,6 @@ function createPro(data) {
     el.setAttribute("class", "item")
     proImg.setAttribute("class", "imgOfPopulore")
     proImg.setAttribute('src', `${objImage}`)
-    proImg.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
     textAndImg.setAttribute('class', 'wrapOfText')
     proTitle.setAttribute('class', 'title')
     proTitle.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
@@ -210,13 +209,13 @@ function createOffer(data) {
     listOfOffers.appendChild(elemOfOffer)
 
     elemOfOffer.setAttribute("class", "item")
-    elemOfOffer.setAttribute('onclick', `getDataDetails(${objid}, displayDetails)`)
     offerCate.setAttribute('src', `../assets/img/${objCate}.svg`)
     offerCate.setAttribute("class", "imgOfTag")
     offSpan.setAttribute('class', 'nameOfTag')
     wrapOfOffer.setAttribute('class', 'wrapOfOffer')
     wrapOfDesc.setAttribute('class', 'wrapOfDesc')
     offImg.setAttribute('src', `${objImage}`)
+    offImg.setAttribute('onclick', `getDataDetails(${objid}, displayDetails)`)
     disc.setAttribute('class', 'disc')
 
     offSpan.innerText = `${objCate}`
@@ -255,7 +254,6 @@ function createRecomeded(data) {
     elemOfRecom.setAttribute("class", "item")
     imgOfRecom.setAttribute("class", "imgOfRecom")
     imgOfRecom.setAttribute('src', `${objImage}`)
-    imgOfRecom.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
     wrapOfTitleAndPrice.setAttribute('class', 'wrapOfTitleAndPrice')
     proTitle.setAttribute('class', 'title')
     proTitle.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
@@ -432,16 +430,45 @@ function showCount() {
 showCount()
 
 //change the name depend on some state
-let account = document.getElementById('account')
-if (unknown.Name == '') account.textContent = 'Sign up'
-else account.textContent = unknown.Name
+let account = document.getElementById('account'),
+  wrapAccount = document.getElementById('wrapAccount'),
+  logout = document.getElementById('logout'),
+  arrowIcon = document.getElementById('arrowIcon');
+if (unknown.Name == '') {
+  account.textContent = 'Sign up'
+  arrowIcon.style.display = 'none'
+} else {
+  account.textContent = unknown.Name
+  arrowIcon.style.display = 'inline-block'
+}
 
 //add link for createAccount page
-account.addEventListener('click', () => {
+wrapAccount.addEventListener('click', () => {
   if (account.textContent == 'Sign up') {
     location.href = '../createAccount/createAccount.html'
+  } else {
+    logout.classList.toggle('activeLogOut')
+    arrowIcon.classList.toggle('rotateIcon')
   }
 })
+
+//add event when click on logout
+logout.addEventListener('click', logOutFunction)
+
+//logout function
+function logOutFunction() {
+  logout.classList.toggle('activeLogOut')
+  arrowIcon.classList.toggle('rotateIcon')
+  arrowIcon.style.display = 'none'
+  account.textContent = 'Sign up'
+  unknown.Currency = ''
+  unknown.Name = ''
+  unknown.Email = ''
+  unknown.Password = ''
+  unknown.Product = []
+  localStorage.setItem("unknown", JSON.stringify(unknown));
+  showCount()
+}
 
 //add link for cart page
 let cartShow = document.getElementById('cartShow')
