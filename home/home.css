@@ -106,6 +106,7 @@ header {
 h1 {
   font-family: "Gilroy-Bold";
   font-size: 22px;
+  cursor: pointer;
 }
 
 .navItem {
