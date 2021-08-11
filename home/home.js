@@ -432,12 +432,21 @@ showCount()
 //change the name depend on some state
 let account = document.getElementById('account')
 if (unknown.Name == '') account.textContent = 'Sign up'
-else account.textContent = unknown.Name
+else account.textContent = 'Log out'
 
 //add link for createAccount page
 account.addEventListener('click', () => {
   if (account.textContent == 'Sign up') {
     location.href = '../createAccount/createAccount.html'
+  } else {
+    unknown.Currency = ''
+    unknown.Name = ''
+    unknown.Email = ''
+    unknown.Password = ''
+    unknown.Product = []
+    localStorage.setItem("unknown", JSON.stringify(unknown));
+    showCount()
+    account.textContent = 'Sign up'
   }
 })
 
