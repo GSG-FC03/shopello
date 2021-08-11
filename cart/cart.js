@@ -78,7 +78,7 @@ function createList(){
     let productPrice = document.createElement("h2");
     productPrice.className = "normal-text";
     productPrice.setAttribute("style", "font-weight: 700;");
-    productPrice.textContent = symbol + (parseFloat(products[i].price) * parseInt(products[i].quantity) * rate).toFixed(2);;
+    productPrice.textContent = symbol + " " + (parseFloat(products[i].price) * parseInt(products[i].quantity) * rate).toFixed(2);;
   
     dataRow_1.appendChild(productName);
     dataRow_1.appendChild(productPrice);
@@ -151,7 +151,7 @@ function totalPrice(){
   for(let i=0;i<products.length;i++){
     total += (parseFloat(products[i].price) * parseInt(products[i].quantity));
   }
-  return symbol+(total * rate).toFixed(2) ;
+  return symbol+ " " +(total * rate).toFixed(2) ;
 }
 
 
