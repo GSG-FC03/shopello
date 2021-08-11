@@ -1,4 +1,10 @@
-let arrayOfUser = [],
+let arrayOfUser = [{
+    Name: "User",
+    Email: "user@gmail.com",
+    Password: "123",
+    Currency: "USD",
+    Product: [],
+  }],
     getStarted = document.getElementsByClassName("signupbtn")[0],
     msgEmpty = document.getElementById("msgEmpty"),
     input = Array.from(document.getElementsByTagName("input")),
