@@ -45,7 +45,7 @@ remove_All.setAttribute('onClick','removeAll()');
 
 function createList(){
   if(products.length == 0){
-    emptyCart.setAttribute('style','display: block;')
+    emptyCart.setAttribute('style','display: flex;')
     cartList.setAttribute('style','display: none;')
     cartBottom.setAttribute('style','display: none;')
     cartTop.setAttribute('style','display: none;')

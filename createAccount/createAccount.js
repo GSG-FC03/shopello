@@ -66,7 +66,7 @@ function signUp() {
             if (document.referrer == 'http://127.0.0.1:5500/login/login.html' || document.referrer == 'http://127.0.0.1:5500/home/home.html')
                 location.href = '../home/home.html'
             else
-                document.referrer
+                location.href = document.referrer
         }
     }
 }
