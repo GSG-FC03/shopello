@@ -51,12 +51,20 @@ function mergeProduct(user){
         products.push(unknown.Product[i])
     }
     for(let i=0;i<user.Product.length;i++){
+        let repeated = false;
+        for(let j=0;j<products.length;j++){
+            if(user.Product[i].id == products[j].id){
+                products[j].quantity = parseInt(products[j].quantity) + parseInt(user.Product[i].quantity);
+                repeated = true;
+            }
+        }
+        if(!repeated)
         products.push(user.Product[i])
     }
 
     unknown.Product = products;
     user.Product = products;
-
+    localStorage.setItem('unknown', JSON.stringify(unknown));
     return user;
 }
 
