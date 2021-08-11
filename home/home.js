@@ -167,7 +167,6 @@ function createPro(data) {
     el.setAttribute("class", "item")
     proImg.setAttribute("class", "imgOfPopulore")
     proImg.setAttribute('src', `${objImage}`)
-    proImg.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
     textAndImg.setAttribute('class', 'wrapOfText')
     proTitle.setAttribute('class', 'title')
     proTitle.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
@@ -210,13 +209,13 @@ function createOffer(data) {
     listOfOffers.appendChild(elemOfOffer)
 
     elemOfOffer.setAttribute("class", "item")
-    elemOfOffer.setAttribute('onclick', `getDataDetails(${objid}, displayDetails)`)
     offerCate.setAttribute('src', `../assets/img/${objCate}.svg`)
     offerCate.setAttribute("class", "imgOfTag")
     offSpan.setAttribute('class', 'nameOfTag')
     wrapOfOffer.setAttribute('class', 'wrapOfOffer')
     wrapOfDesc.setAttribute('class', 'wrapOfDesc')
     offImg.setAttribute('src', `${objImage}`)
+    offImg.setAttribute('onclick', `getDataDetails(${objid}, displayDetails)`)
     disc.setAttribute('class', 'disc')
 
     offSpan.innerText = `${objCate}`
@@ -255,7 +254,6 @@ function createRecomeded(data) {
     elemOfRecom.setAttribute("class", "item")
     imgOfRecom.setAttribute("class", "imgOfRecom")
     imgOfRecom.setAttribute('src', `${objImage}`)
-    imgOfRecom.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
     wrapOfTitleAndPrice.setAttribute('class', 'wrapOfTitleAndPrice')
     proTitle.setAttribute('class', 'title')
     proTitle.setAttribute('onclick', `getDataDetails(${objid},displayDetails)`)
