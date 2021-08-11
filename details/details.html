@@ -8,39 +8,61 @@
     <title>Document</title>
   </head>
   <body>
-
-
     <!-- back button -->
+    <section class="buyMsg" id="buyMsg">
+      <header class="msgBody">
+        <div class="msgcontainer">
+          <img
+            class="plus"
+            src="../assets/img/plus.svg"
+            onclick="window.location.href='../home/home.html';"
+          />
+          <img class="success" src="../assets/img/successful.svg" />
+          <h1>Successful</h1>
+          <p>Congrats! You successfully bought your items</p>
+          <button
+            type="submit"
+            class="submitBtn"
+            onclick="window.location.href='../home/home.html';"
+          >
+            Go to the store
+          </button>
+        </div>
+      </header>
+    </section>
 
     <!-- body of the detailspage -->
-    
+
     <div class="details" id="details">
       <button class="backBtn" onclick="location.href='../home/home.html'">
         <img src="../assets/img/back.svg" alt="" />
         Back
       </button>
-      <img src="" id ='productImage'alt="" />
+      <img src="" id="productImage" alt="" />
       <div class="categoryPrice">
         <p class="category" id="productCategory">Electronic</p>
         <div class="priceTag">
-          <div id="priceTag"></div>
           <div id="originalPice"></div>
+          <div id="priceTag"></div>
         </div>
       </div>
       <div class="title">
         <p id="productTitle"></p>
       </div>
       <div class="description">
-        <p id="productDesc">
-        </p>
+        <p id="productDesc"></p>
       </div>
 
       <!-- div to add or remove item and to calculate the total price -->
       <div class="quantityPrice">
         <div class="quantity">
-          <button class="minus" id="minus"><img src="../assets/img/minus.svg" alt=""></button>
+          <button class="minus" id="minus">
+            <img src="../assets/img/minus.svg" alt="" />
+          </button>
           <div class="amount" id="amount">1</div>
-          <button class="plus" id="plus"><img src="../assets/img/plus.svg" alt=""></button>
+          <button class="plusItem" id="plus">
+            <img src="../assets/img/plus.svg" alt="" />
+          </button>
         </div>
         <div class="price">
           <p class="ttl">Total:</p>
