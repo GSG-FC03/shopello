@@ -174,7 +174,7 @@ html,body{
 }
 .empty-cart{
     display: none; /*display:flex to show empty card page*/
-    margin-top: 6rem;
+    margin-top: 8rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -185,7 +185,7 @@ html,body{
     width: 14.5rem;
 }
 .cart-text{
-    margin-top: 0.375rem;
+    margin-top: 2.375rem;
     font-size: 1.375rem;
     width:12.5rem ;
     text-align: center;
