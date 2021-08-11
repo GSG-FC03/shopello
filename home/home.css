@@ -470,6 +470,33 @@ h2 {
   cursor: pointer;
 }
 
+.wrapAccount {
+  position: relative;
+}
+
+.logout {
+  width: 80px;
+  height: 50px;
+  background-color: var(--MainFont-Color);
+  color: #fff;
+  border-radius: 12px;
+  position: absolute;
+  right: 0%;
+  top: 150%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.activeLogOut {
+  display: flex;
+}
+
+.rotateIcon {
+  transform: rotate(180deg)
+}
+
 @media only screen and (min-width: 650px) {
 
   .wrapSearch {
