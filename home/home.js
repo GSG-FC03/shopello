@@ -58,9 +58,13 @@ unknown = localStorage.getItem("unknown") === null ? [] : JSON.parse(localStorag
 //fetch currencies and exchange prices 
 let Currency,
   rate = 1,
-  symbol = '$';
-if (unknown.Currency == '') Currency = 'USD'
-else {
+  symbol = '$',
+  timer;
+if (unknown.Currency == '') {
+  Currency = 'USD'
+  timer = 0
+} else {
+  timer = 200
   Currency = unknown.Currency
   symbol = Currency
   let from = "USD",
@@ -131,7 +135,7 @@ setTimeout(() => {
       console.log("error", e.message)
     }
   })()
-}, 100)
+}, timer)
 
 //create dom for listOfPopulore
 function createPro(data) {
@@ -450,44 +454,70 @@ const wrapTags = document.getElementById('wrapTags'),
   lists = document.createElement('ul');
 
 lists.setAttribute('class', 'itemsSearch')
-
-// searchInput.addEventListener('blur', focusInput)
 searchInput.addEventListener('keyup', search)
 
-// function focusInput() {
-//   itemsSection.style.display = 'none'
-//   searchInput.value = ''
-//   wrapTags.style.display = 'flex'
-//   main.style.display = 'block'
-// }
+//fetch translate api 
+async function getDataTranslate(arabicWord) {
+  try {
+    const response = await fetch(`https://api.mymemory.translated.net/get?q=${arabicWord}&langpair=ar%7Cen-US%22`)
+    const dataWord = await response.json()
+    getEnglishWord(dataWord)
+  } catch (e) {
+    console.log("error", e.message)
+  }
+}
+
+//get translated Word
+let translatedWord;
+
+function getEnglishWord(dataWord) {
+  translatedWord = dataWord.matches[0].translation
+}
 
 //search function
 function search() {
-  let found = true;
-  itemsSection.style.display = 'block'
-  lists.textContent = ''
-  if (dataForSearch.length > 0 && searchInput.value !== '' && searchInput.value !== ' ') {
-    dataForSearch.forEach(el => {
-      let nameOfProduct = el.title
-      let nameOfProductSearch = el.title.toLowerCase()
-      if (nameOfProductSearch.includes(searchInput.value.toLowerCase().trim())) {
-        found = false
-        wrapTags.style.display = 'flex'
-        main.style.display = 'block'
-        notfound.style.display = 'none'
-        const list = document.createElement('li')
-        list.textContent = nameOfProduct.split(' ').splice(0, 5).join(' ')
-        list.setAttribute('class', 'itemSearch')
-        list.setAttribute('onclick', `getDataDetails(${el.id},displayDetails)`)
-        lists.appendChild(list)
-      }
-    })
-    if (found) {
-      let notfound = document.getElementById('notfound')
-      wrapTags.style.display = 'none'
-      main.style.display = 'none'
-      notfound.style.display = 'flex'
-    }
+
+  let arabic = /[\u0600-\u06FF\u0750-\u077F]/,
+    word = searchInput.value,
+    found = true,
+    searchValue,
+    timerWord;
+
+  if (arabic.test(word)) {
+    timerWord = 1000
+    getDataTranslate(word)
+    searchValue = translatedWord
+  } else {
+    searchValue = searchInput.value
+    timerWord = 0
   }
-  itemsSection.appendChild(lists)
+
+  setTimeout(() => {
+    itemsSection.style.display = 'block'
+    lists.textContent = ''
+    if (dataForSearch.length > 0 && searchValue !== '' && searchValue !== ' ') {
+      dataForSearch.forEach(el => {
+        let nameOfProduct = el.title
+        let nameOfProductSearch = el.title.toLowerCase()
+        if (nameOfProductSearch.includes(searchValue.toLowerCase().trim())) {
+          found = false
+          wrapTags.style.display = 'flex'
+          main.style.display = 'block'
+          notfound.style.display = 'none'
+          const list = document.createElement('li')
+          list.textContent = nameOfProduct.split(' ').splice(0, 5).join(' ')
+          list.setAttribute('class', 'itemSearch')
+          list.setAttribute('onclick', `getDataDetails(${el.id},displayDetails)`)
+          lists.appendChild(list)
+        }
+      })
+      if (found) {
+        let notfound = document.getElementById('notfound')
+        wrapTags.style.display = 'none'
+        main.style.display = 'none'
+        notfound.style.display = 'flex'
+      }
+    }
+    itemsSection.appendChild(lists)
+  }, timerWord)
 }
